@@ -764,6 +764,11 @@
             color: #2e7d32;
         }
         
+        .type-comment {
+            background-color: #fff3e0;
+            color: #e65100;
+        }
+        
         /* Footer Styles */
         footer {
             background-color: #333;
@@ -875,6 +880,84 @@
             font-size: 1.2rem;
         }
         
+        /* Share Modal Styles */
+        .share-modal {
+            max-width: 400px;
+        }
+        
+        .share-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .share-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .share-option:hover {
+            background-color: #f9f9ff;
+            transform: translateY(-2px);
+        }
+        
+        .share-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        
+        .whatsapp {
+            color: #25D366;
+        }
+        
+        .facebook {
+            color: #1877F2;
+        }
+        
+        .twitter {
+            color: #1DA1F2;
+        }
+        
+        .instagram {
+            color: #E4405F;
+        }
+        
+        .youtube {
+            color: #FF0000;
+        }
+        
+        .linkedin {
+            color: #0A66C2;
+        }
+        
+        .share-link {
+            display: flex;
+            margin-top: 15px;
+        }
+        
+        .share-link input {
+            flex: 1;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        
+        .copy-link-btn {
+            background-color: #4e54c8;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            cursor: pointer;
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .header-content {
@@ -924,6 +1007,10 @@
             .notifications-panel {
                 width: 300px;
                 right: -50px;
+            }
+            
+            .share-options {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
@@ -1101,6 +1188,7 @@
         </div>
     </section>
 
+    <!-- Auth Modal -->
     <div id="auth-modal" class="modal hidden">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -1145,6 +1233,56 @@
         </div>
     </div>
 
+    <!-- Share Modal -->
+    <div id="share-modal" class="modal hidden">
+        <div class="modal-content share-modal">
+            <span class="close-modal">&times;</span>
+            <h3>Share Post</h3>
+            <div class="share-options">
+                <div class="share-option" data-platform="whatsapp">
+                    <div class="share-icon whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <span>WhatsApp</span>
+                </div>
+                <div class="share-option" data-platform="facebook">
+                    <div class="share-icon facebook">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <span>Facebook</span>
+                </div>
+                <div class="share-option" data-platform="twitter">
+                    <div class="share-icon twitter">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <span>Twitter</span>
+                </div>
+                <div class="share-option" data-platform="instagram">
+                    <div class="share-icon instagram">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <span>Instagram</span>
+                </div>
+                <div class="share-option" data-platform="youtube">
+                    <div class="share-icon youtube">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <span>YouTube</span>
+                </div>
+                <div class="share-option" data-platform="linkedin">
+                    <div class="share-icon linkedin">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <span>LinkedIn</span>
+                </div>
+            </div>
+            <div class="share-link">
+                <input type="text" id="share-url" readonly>
+                <button class="copy-link-btn" id="copy-link-btn">Copy</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1177,7 +1315,8 @@
         const messagesSection = document.getElementById('messages');
         const usersSection = document.getElementById('users');
         const authModal = document.getElementById('auth-modal');
-        const closeModalBtn = document.querySelector('.close-modal');
+        const shareModal = document.getElementById('share-modal');
+        const closeModalBtns = document.querySelectorAll('.close-modal');
         const switchToRegister = document.getElementById('switch-to-register');
         const switchToLogin = document.getElementById('switch-to-login');
         const loginForm = document.getElementById('login-form');
@@ -1219,6 +1358,11 @@
         const notificationsPanel = document.getElementById('notifications-panel');
         const clearNotificationsBtn = document.getElementById('clear-notifications');
         
+        // Share modal elements
+        const shareOptions = document.querySelectorAll('.share-option');
+        const shareUrlInput = document.getElementById('share-url');
+        const copyLinkBtn = document.getElementById('copy-link-btn');
+        
         // Media upload elements
         const mediaDropArea = document.getElementById('media-drop-area');
         const mediaUpload = document.getElementById('media-upload');
@@ -1230,6 +1374,7 @@
         let currentConversationId = null;
         let isDarkMode = localStorage.getItem('darkMode') === 'true';
         let typingTimeout = null;
+        let currentPostToShare = null;
 
         // Event Listeners
         document.addEventListener('DOMContentLoaded', function() {
@@ -1261,7 +1406,9 @@
             promptLoginBtn.addEventListener('click', showLoginModal);
             
             // Modal interactions
-            closeModalBtn.addEventListener('click', closeAuthModal);
+            closeModalBtns.forEach(btn => {
+                btn.addEventListener('click', closeAllModals);
+            });
             switchToRegister.addEventListener('click', switchToRegisterForm);
             switchToLogin.addEventListener('click', switchToLoginForm);
             
@@ -1315,10 +1462,20 @@
             // Theme toggle
             themeToggle.addEventListener('click', toggleDarkMode);
             
+            // Share functionality
+            shareOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const platform = this.getAttribute('data-platform');
+                    shareOnPlatform(platform);
+                });
+            });
+            
+            copyLinkBtn.addEventListener('click', copyShareLink);
+            
             // Close modal when clicking outside
             window.addEventListener('click', function(event) {
-                if (event.target === authModal) {
-                    closeAuthModal();
+                if (event.target === authModal || event.target === shareModal) {
+                    closeAllModals();
                 }
                 if (!notificationBell.contains(event.target)) {
                     notificationsPanel.classList.remove('active');
@@ -1338,8 +1495,9 @@
             loginForm.classList.add('hidden');
         }
 
-        function closeAuthModal() {
+        function closeAllModals() {
             authModal.classList.add('hidden');
+            shareModal.classList.add('hidden');
             // Clear form fields
             document.getElementById('login-email').value = '';
             document.getElementById('login-password').value = '';
@@ -1381,7 +1539,7 @@
                 currentUser = user;
                 localStorage.setItem('currentUser', JSON.stringify(currentUser));
                 updateUIForLoggedInUser();
-                closeAuthModal();
+                closeAllModals();
                 alert('Login successful!');
             } else {
                 alert('Invalid email or password');
@@ -1427,7 +1585,7 @@
             currentUser = newUser;
             localStorage.setItem('currentUser', JSON.stringify(currentUser));
             updateUIForLoggedInUser();
-            closeAuthModal();
+            closeAllModals();
             alert('Registration successful! You are now logged in.');
         }
 
@@ -1654,7 +1812,7 @@
             
             const shareBtn = postDiv.querySelector('[data-action="share"]');
             shareBtn.addEventListener('click', function() {
-                handlePostAction(post.id, 'share');
+                openShareModal(post);
             });
             
             // Add event listener to message button
@@ -1732,11 +1890,76 @@
                     if (posts[postIndex].authorId !== currentUser.id) {
                         createCommentNotification(posts[postIndex].authorId, currentUser.name, posts[postIndex].title);
                     }
+                    
+                    // Update user stats
+                    updateUserStats();
                 }
-            } else if (action === 'share') {
-                // In a real app, this would share to social media
-                alert('Post shared! (This would share to social media in a real application)');
             }
+        }
+
+        function openShareModal(post) {
+            currentPostToShare = post;
+            
+            // Generate share URL
+            const shareUrl = `${window.location.origin}${window.location.pathname}#post-${post.id}`;
+            shareUrlInput.value = shareUrl;
+            
+            // Show share modal
+            shareModal.classList.remove('hidden');
+        }
+
+        function shareOnPlatform(platform) {
+            if (!currentPostToShare) return;
+            
+            const postTitle = encodeURIComponent(currentPostToShare.title);
+            const postContent = encodeURIComponent(currentPostToShare.content);
+            const shareUrl = encodeURIComponent(shareUrlInput.value);
+            
+            let shareWindowUrl = '';
+            
+            switch(platform) {
+                case 'whatsapp':
+                    shareWindowUrl = `https://api.whatsapp.com/send?text=${postTitle} - ${postContent} ${shareUrl}`;
+                    break;
+                case 'facebook':
+                    shareWindowUrl = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}&quote=${postTitle}`;
+                    break;
+                case 'twitter':
+                    shareWindowUrl = `https://twitter.com/intent/tweet?text=${postTitle}&url=${shareUrl}`;
+                    break;
+                case 'instagram':
+                    // Instagram doesn't have a direct share URL, so we'll just copy the link
+                    copyShareLink();
+                    alert('Link copied! You can now paste it in your Instagram post.');
+                    return;
+                case 'youtube':
+                    // YouTube doesn't have a direct share URL for posts
+                    alert('To share on YouTube, create a video about this post and include the link in your description.');
+                    return;
+                case 'linkedin':
+                    shareWindowUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`;
+                    break;
+                default:
+                    return;
+            }
+            
+            // Open share window
+            window.open(shareWindowUrl, '_blank', 'width=600,height=400');
+        }
+
+        function copyShareLink() {
+            shareUrlInput.select();
+            document.execCommand('copy');
+            
+            // Visual feedback
+            const originalText = copyLinkBtn.textContent;
+            copyLinkBtn.textContent = 'Copied!';
+            copyLinkBtn.style.backgroundColor = '#4CAF50';
+            
+            setTimeout(() => {
+                copyLinkBtn.textContent = originalText;
+                copyLinkBtn.style.backgroundColor = '#4e54c8';
+            }, 2000);
         }
 
         function handlePostSubmit(e) {
@@ -2294,14 +2517,16 @@
         }
 
         function updateNotificationsPanel(notifications) {
-            // Clear notifications panel
+            // Clear notifications panel (except the header)
             const notificationsContainer = notificationsPanel;
-            // Skip the header when clearing
-            const notificationItems = notificationsContainer.querySelectorAll('.notification-item');
-            notificationItems.forEach(item => item.remove());
+            const existingNotifications = notificationsContainer.querySelectorAll('.notification-item');
+            existingNotifications.forEach(notification => notification.remove());
             
             if (notifications.length === 0) {
-                notificationsContainer.innerHTML += '<div class="notification-item"><div class="notification-message">No notifications</div></div>';
+                const noNotifications = document.createElement('div');
+                noNotifications.className = 'notification-item';
+                noNotifications.innerHTML = '<div class="notification-message">No notifications</div>';
+                notificationsContainer.appendChild(noNotifications);
                 return;
             }
             
