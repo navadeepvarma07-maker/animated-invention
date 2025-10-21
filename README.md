@@ -1,5 +1,4 @@
 # animated-invention
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -455,7 +454,7 @@
     <header>
         <div class="container">
             <div class="header-top">
-                <h1><span class="highlight">Neighborhood</span> Connect</h1>
+                <h1><span class="highlight"> ARNAMA </span> Connect</h1>
                 <div class="auth-buttons">
                     <button id="login-btn" class="auth-btn">Login</button>
                     <button id="register-btn" class="auth-btn">Register</button>
