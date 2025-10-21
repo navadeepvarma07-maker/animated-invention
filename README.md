@@ -1,4 +1,4 @@
-# animated-invention
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -36,18 +36,44 @@
             color: white;
             padding: 1.5rem 0;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
         }
         
-        .header-top {
+        .header-content {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            color: #ffde59;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
         }
         
         h1 {
             font-size: 2.2rem;
             font-weight: 700;
+            line-height: 1.1;
+        }
+        
+        .tagline {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-top: 5px;
         }
         
         .highlight {
@@ -79,6 +105,27 @@
             gap: 15px;
         }
         
+        .notification-bell {
+            position: relative;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+        
+        .notification-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #ff4757;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
         /* Navigation Styles */
         nav {
             background-color: #fff;
@@ -100,6 +147,9 @@
             color: #4e54c8;
             font-weight: 500;
             transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
         
         nav a:hover {
@@ -267,6 +317,7 @@
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             padding: 1.5rem;
             transition: transform 0.3s ease;
+            position: relative;
         }
         
         .post-card:hover {
@@ -336,6 +387,22 @@
             color: #f57f17;
         }
         
+        .message-author-btn {
+            background-color: #8a64d0;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .message-author-btn:hover {
+            background-color: #6a4ca8;
+        }
+        
         /* Dashboard Styles */
         .dashboard-grid {
             display: grid;
@@ -358,6 +425,136 @@
             border-radius: 4px;
             cursor: pointer;
             margin-top: 1rem;
+        }
+        
+        /* Messaging Styles */
+        .messaging-container {
+            display: flex;
+            height: 500px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .conversations-list {
+            width: 30%;
+            border-right: 1px solid #eee;
+            overflow-y: auto;
+        }
+        
+        .conversation-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .conversation-item:hover {
+            background-color: #f9f9ff;
+        }
+        
+        .conversation-item.active {
+            background-color: #eef2ff;
+        }
+        
+        .conversation-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .conversation-name {
+            font-weight: 600;
+        }
+        
+        .conversation-time {
+            font-size: 0.8rem;
+            color: #888;
+        }
+        
+        .conversation-preview {
+            font-size: 0.9rem;
+            color: #666;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .chat-area {
+            width: 70%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .chat-header {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            background-color: #f9f9ff;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .message {
+            max-width: 70%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            position: relative;
+        }
+        
+        .message.sent {
+            align-self: flex-end;
+            background-color: #4e54c8;
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .message.received {
+            align-self: flex-start;
+            background-color: #f0f0f0;
+            color: #333;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .message-time {
+            font-size: 0.7rem;
+            opacity: 0.7;
+            margin-top: 5px;
+            text-align: right;
+        }
+        
+        .chat-input {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid #eee;
+            gap: 10px;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+        }
+        
+        .send-btn {
+            background-color: #4e54c8;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         /* Modal Styles */
@@ -425,7 +622,7 @@
         
         /* Responsive Design */
         @media (max-width: 768px) {
-            .header-top {
+            .header-content {
                 flex-direction: column;
                 text-align: center;
                 gap: 15px;
@@ -447,32 +644,61 @@
             .media-preview {
                 justify-content: center;
             }
+            
+            .messaging-container {
+                flex-direction: column;
+                height: 600px;
+            }
+            
+            .conversations-list, .chat-area {
+                width: 100%;
+            }
+            
+            .conversations-list {
+                height: 40%;
+            }
+            
+            .chat-area {
+                height: 60%;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="header-top">
-                <h1> ARNAMA  Connect</h1>
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>ARNAMA <span class="highlight">Connect</span></h1>
+                        <p class="tagline">Your local community hub for events, news, and resources</p>
+                    </div>
+                </div>
                 <div class="auth-buttons">
                     <button id="login-btn" class="auth-btn">Login</button>
                     <button id="register-btn" class="auth-btn">Register</button>
                     <div id="user-greeting" class="hidden">
+                        <div class="notification-bell">
+                            <i class="fas fa-bell"></i>
+                            <span id="notification-count" class="notification-count hidden">0</span>
+                        </div>
                         <span id="username-display"></span>
                         <button id="logout-btn" class="auth-btn">Logout</button>
                     </div>
                 </div>
             </div>
-            <p>Your local community hub for events, news, and resources</p>
         </div>
     </header>
 
     <nav>
         <div class="container">
             <ul>
-                <li><a href="#bulletin">Community Bulletin</a></li>
-                <li id="dashboard-link" class="hidden"><a href="#dashboard">My Dashboard</a></li>
+                <li><a href="#bulletin"><i class="fas fa-bullhorn"></i> Community Bulletin</a></li>
+                <li id="dashboard-link" class="hidden"><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> My Dashboard</a></li>
+                <li id="messages-link" class="hidden"><a href="#messages"><i class="fas fa-comments"></i> Messages</a></li>
             </ul>
         </div>
     </nav>
@@ -557,6 +783,31 @@
         </div>
     </section>
 
+    <section id="messages" class="section hidden">
+        <div class="container">
+            <h2>Messages</h2>
+            <div class="messaging-container">
+                <div class="conversations-list" id="conversations-list">
+                    <!-- Conversations will be loaded here -->
+                </div>
+                <div class="chat-area">
+                    <div class="chat-header" id="chat-header">
+                        <p>Select a conversation to start messaging</p>
+                    </div>
+                    <div class="chat-messages" id="chat-messages">
+                        <!-- Messages will be loaded here -->
+                    </div>
+                    <div class="chat-input hidden" id="chat-input">
+                        <input type="text" id="message-input" placeholder="Type a message...">
+                        <button class="send-btn" id="send-message-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div id="auth-modal" class="modal hidden">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -604,19 +855,22 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <h3>Neighborhood Connect</h3>
+                <h3>Arnama Connect</h3>
                 <div class="footer-nav">
                     <a href="#bulletin">Community Bulletin</a>
                     <a href="#">About Us</a>
                     <a href="#">Contact</a>
                     <a href="#">Privacy Policy</a>
                 </div>
-                <p>&copy; 2023 Neighborhood Connect. All rights reserved.</p>
+                <p>&copy; 2023 Arnama Connect. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Clear all previous data
+        localStorage.clear();
+
         // DOM Elements
         const loginBtn = document.getElementById('login-btn');
         const registerBtn = document.getElementById('register-btn');
@@ -624,7 +878,9 @@
         const userGreeting = document.getElementById('user-greeting');
         const usernameDisplay = document.getElementById('username-display');
         const dashboardLink = document.getElementById('dashboard-link');
+        const messagesLink = document.getElementById('messages-link');
         const dashboardSection = document.getElementById('dashboard');
+        const messagesSection = document.getElementById('messages');
         const authModal = document.getElementById('auth-modal');
         const closeModalBtn = document.querySelector('.close-modal');
         const switchToRegister = document.getElementById('switch-to-register');
@@ -645,62 +901,23 @@
         const savedPostsContainer = document.getElementById('saved-posts');
         const editProfileBtn = document.getElementById('edit-profile-btn');
         
+        // Messaging elements
+        const conversationsList = document.getElementById('conversations-list');
+        const chatHeader = document.getElementById('chat-header');
+        const chatMessages = document.getElementById('chat-messages');
+        const chatInput = document.getElementById('chat-input');
+        const messageInput = document.getElementById('message-input');
+        const sendMessageBtn = document.getElementById('send-message-btn');
+        
         // Media upload elements
         const mediaDropArea = document.getElementById('media-drop-area');
         const mediaUpload = document.getElementById('media-upload');
         const mediaPreview = document.getElementById('media-preview');
 
-        // Sample posts data with media examples
-        const samplePosts = [
-            {
-                id: 1,
-                title: "Community Garden Workday",
-                content: "We're having a workday at the community garden this Saturday from 9am-12pm. All are welcome! Bring gloves and water.",
-                category: "event",
-                author: "Green Thumb Gary",
-                date: "2023-10-15",
-                media: [
-                    {type: 'image', url: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80'}
-                ]
-            },
-            {
-                id: 2,
-                title: "Moving Boxes Available",
-                content: "I have a bunch of moving boxes in good condition. Free to anyone who can pick them up. Various sizes available.",
-                category: "offer",
-                author: "Moving Mary",
-                date: "2023-10-14",
-                media: [
-                    {type: 'image', url: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80'}
-                ]
-            },
-            {
-                id: 3,
-                title: "Yard Sale This Weekend",
-                content: "Big yard sale on Saturday from 8am-2pm at 123 Maple Street. Furniture, kids' clothes, books, and more!",
-                category: "sale",
-                author: "Sale Sally",
-                date: "2023-10-13",
-                media: [
-                    {type: 'image', url: 'https://images.unsplash.com/photo-1577702312572-5bb9328a7e1c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80'}
-                ]
-            },
-            {
-                id: 4,
-                title: "Neighborhood Block Party",
-                content: "Join us for the annual neighborhood block party this Sunday! Food, music, and games for all ages.",
-                category: "event",
-                author: "Party Pete",
-                date: "2023-10-12",
-                media: [
-                    {type: 'image', url: 'https://images.unsplash.com/photo-1535016120720-40c646be5580?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80'}
-                ]
-            }
-        ];
-
         // Current user state
         let currentUser = null;
         let mediaFiles = [];
+        let currentConversationId = null;
 
         // Event Listeners
         document.addEventListener('DOMContentLoaded', function() {
@@ -711,7 +928,7 @@
                 updateUIForLoggedInUser();
             }
             
-            // Load sample posts
+            // Load posts
             loadPosts();
             
             // Set up event listeners
@@ -737,6 +954,7 @@
             
             // Navigation
             dashboardLink.addEventListener('click', showDashboard);
+            messagesLink.addEventListener('click', showMessages);
             
             // Media upload
             mediaDropArea.addEventListener('click', () => mediaUpload.click());
@@ -751,6 +969,14 @@
                 mediaDropArea.style.backgroundColor = 'transparent';
             });
             mediaDropArea.addEventListener('drop', handleMediaDrop);
+            
+            // Messaging
+            sendMessageBtn.addEventListener('click', sendMessage);
+            messageInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    sendMessage();
+                }
+            });
             
             // Close modal when clicking outside
             window.addEventListener('click', function(event) {
@@ -882,8 +1108,9 @@
             postFormContainer.classList.remove('hidden');
             loginPrompt.classList.add('hidden');
             
-            // Show dashboard link
+            // Show dashboard and messages links
             dashboardLink.classList.remove('hidden');
+            messagesLink.classList.remove('hidden');
             
             // Update dashboard if visible
             if (window.location.hash === '#dashboard') {
@@ -892,6 +1119,9 @@
             
             // Load user's posts
             loadUserPosts();
+            
+            // Load conversations
+            loadConversations();
         }
 
         function updateUIForLoggedOutUser() {
@@ -904,11 +1134,13 @@
             postFormContainer.classList.add('hidden');
             loginPrompt.classList.remove('hidden');
             
-            // Hide dashboard link
+            // Hide dashboard and messages links
             dashboardLink.classList.add('hidden');
+            messagesLink.classList.add('hidden');
             
-            // Hide dashboard if visible
+            // Hide dashboard and messages if visible
             dashboardSection.classList.add('hidden');
+            messagesSection.classList.add('hidden');
         }
 
         function handleMediaUpload(e) {
@@ -977,19 +1209,19 @@
             // Clear posts container
             postsContainer.innerHTML = '';
             
-            // Get posts from localStorage or use sample posts
-            const posts = JSON.parse(localStorage.getItem('posts')) || samplePosts;
+            // Get posts from localStorage
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            
+            if (posts.length === 0) {
+                postsContainer.innerHTML = '<p>No posts yet. Be the first to share something with the community!</p>';
+                return;
+            }
             
             // Display each post
             posts.forEach(post => {
                 const postElement = createPostElement(post);
                 postsContainer.appendChild(postElement);
             });
-            
-            // Save posts to localStorage if using sample posts
-            if (!localStorage.getItem('posts')) {
-                localStorage.setItem('posts', JSON.stringify(posts));
-            }
         }
 
         function createPostElement(post) {
@@ -1011,6 +1243,9 @@
                 mediaHTML += '</div>';
             }
             
+            // Check if current user is the author
+            const isCurrentUserAuthor = currentUser && post.authorId === currentUser.id;
+            
             postDiv.innerHTML = `
                 <h3 class="post-title">${post.title}</h3>
                 ${mediaHTML}
@@ -1020,7 +1255,18 @@
                     <span class="post-date">${post.date}</span>
                 </div>
                 <span class="post-category ${categoryClass}">${post.category}</span>
+                ${!isCurrentUserAuthor && currentUser ? `<button class="message-author-btn" data-author-id="${post.authorId}" data-author-name="${post.author}">Message ${post.author}</button>` : ''}
             `;
+            
+            // Add event listener to message button
+            if (!isCurrentUserAuthor && currentUser) {
+                const messageBtn = postDiv.querySelector('.message-author-btn');
+                messageBtn.addEventListener('click', function() {
+                    const authorId = this.getAttribute('data-author-id');
+                    const authorName = this.getAttribute('data-author-name');
+                    startNewConversation(authorId, authorName);
+                });
+            }
             
             return postDiv;
         }
@@ -1044,6 +1290,7 @@
                 content,
                 category,
                 author: currentUser.name,
+                authorId: currentUser.id,
                 date: new Date().toLocaleDateString(),
                 media: []
             };
@@ -1084,6 +1331,9 @@
             // Show dashboard section
             dashboardSection.classList.remove('hidden');
             
+            // Hide messages section
+            messagesSection.classList.add('hidden');
+            
             // Scroll to dashboard
             dashboardSection.scrollIntoView({ behavior: 'smooth' });
             
@@ -1098,6 +1348,20 @@
             loadUserPosts();
         }
 
+        function showMessages() {
+            // Show messages section
+            messagesSection.classList.remove('hidden');
+            
+            // Hide dashboard section
+            dashboardSection.classList.add('hidden');
+            
+            // Scroll to messages
+            messagesSection.scrollIntoView({ behavior: 'smooth' });
+            
+            // Load conversations
+            loadConversations();
+        }
+
         function loadUserPosts() {
             if (!currentUser) return;
             
@@ -1108,7 +1372,7 @@
             const posts = JSON.parse(localStorage.getItem('posts') || '[]');
             
             // Filter user's posts
-            const userPosts = posts.filter(post => post.author === currentUser.name);
+            const userPosts = posts.filter(post => post.authorId === currentUser.id);
             
             if (userPosts.length === 0) {
                 userPostsContainer.innerHTML = '<p>You haven\'t made any posts yet.</p>';
@@ -1120,6 +1384,184 @@
                 const postElement = createPostElement(post);
                 userPostsContainer.appendChild(postElement);
             });
+        }
+
+        function loadConversations() {
+            if (!currentUser) return;
+            
+            // Clear conversations list
+            conversationsList.innerHTML = '';
+            
+            // Get conversations from localStorage
+            const conversations = JSON.parse(localStorage.getItem(`conversations_${currentUser.id}`)) || [];
+            
+            if (conversations.length === 0) {
+                conversationsList.innerHTML = '<p>No conversations yet. Message someone from their post to start a conversation!</p>';
+                return;
+            }
+            
+            // Display each conversation
+            conversations.forEach(conversation => {
+                const conversationElement = document.createElement('div');
+                conversationElement.className = 'conversation-item';
+                conversationElement.setAttribute('data-id', conversation.id);
+                
+                conversationElement.innerHTML = `
+                    <div class="conversation-header">
+                        <span class="conversation-name">${conversation.otherUserName}</span>
+                        <span class="conversation-time">${formatTime(conversation.lastMessageTime)}</span>
+                    </div>
+                    <div class="conversation-preview">${conversation.lastMessage}</div>
+                `;
+                
+                // Add click event to load conversation
+                conversationElement.addEventListener('click', () => {
+                    loadConversation(conversation.id);
+                    // Remove active class from all conversations
+                    document.querySelectorAll('.conversation-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    // Add active class to clicked conversation
+                    conversationElement.classList.add('active');
+                });
+                
+                conversationsList.appendChild(conversationElement);
+            });
+        }
+
+        function startNewConversation(authorId, authorName) {
+            // Check if conversation already exists
+            const conversations = JSON.parse(localStorage.getItem(`conversations_${currentUser.id}`)) || [];
+            const existingConversation = conversations.find(c => c.otherUserId == authorId);
+            
+            if (existingConversation) {
+                // Load existing conversation
+                loadConversation(existingConversation.id);
+                showMessages();
+                return;
+            }
+            
+            // Create new conversation
+            const newConversation = {
+                id: Date.now(),
+                otherUserId: authorId,
+                otherUserName: authorName,
+                lastMessage: "Start a conversation",
+                lastMessageTime: new Date().toISOString()
+            };
+            
+            // Save conversation
+            conversations.push(newConversation);
+            localStorage.setItem(`conversations_${currentUser.id}`, JSON.stringify(conversations));
+            
+            // Also create conversation for the other user
+            const otherUserConversations = JSON.parse(localStorage.getItem(`conversations_${authorId}`)) || [];
+            otherUserConversations.push({
+                id: newConversation.id,
+                otherUserId: currentUser.id,
+                otherUserName: currentUser.name,
+                lastMessage: "Start a conversation",
+                lastMessageTime: new Date().toISOString()
+            });
+            localStorage.setItem(`conversations_${authorId}`, JSON.stringify(otherUserConversations));
+            
+            // Initialize empty messages for this conversation
+            localStorage.setItem(`messages_${newConversation.id}`, JSON.stringify([]));
+            
+            // Load the new conversation
+            loadConversation(newConversation.id);
+            showMessages();
+        }
+
+        function loadConversation(conversationId) {
+            currentConversationId = conversationId;
+            
+            // Get messages from localStorage
+            const messages = JSON.parse(localStorage.getItem(`messages_${conversationId}`)) || [];
+            
+            // Clear chat messages
+            chatMessages.innerHTML = '';
+            
+            // Find the conversation to get participant info
+            const conversations = JSON.parse(localStorage.getItem(`conversations_${currentUser.id}`)) || [];
+            const conversation = conversations.find(c => c.id === conversationId);
+            
+            if (!conversation) return;
+            
+            // Update chat header
+            chatHeader.innerHTML = `<h3>${conversation.otherUserName}</h3>`;
+            
+            // Show chat input
+            chatInput.classList.remove('hidden');
+            
+            // Display each message
+            messages.forEach(message => {
+                const messageElement = document.createElement('div');
+                messageElement.className = `message ${message.senderId === currentUser.id ? 'sent' : 'received'}`;
+                
+                messageElement.innerHTML = `
+                    <div class="message-content">${message.content}</div>
+                    <div class="message-time">${formatTime(message.time)}</div>
+                `;
+                
+                chatMessages.appendChild(messageElement);
+            });
+            
+            // Scroll to bottom of chat
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function sendMessage() {
+            if (!currentConversationId || !messageInput.value.trim()) return;
+            
+            const messageContent = messageInput.value.trim();
+            
+            // Create new message
+            const newMessage = {
+                senderId: currentUser.id,
+                senderName: currentUser.name,
+                content: messageContent,
+                time: new Date().toISOString()
+            };
+            
+            // Get existing messages
+            const messages = JSON.parse(localStorage.getItem(`messages_${currentConversationId}`)) || [];
+            
+            // Add new message
+            messages.push(newMessage);
+            
+            // Save messages
+            localStorage.setItem(`messages_${currentConversationId}`, JSON.stringify(messages));
+            
+            // Update conversation last message
+            const conversations = JSON.parse(localStorage.getItem(`conversations_${currentUser.id}`)) || [];
+            const conversationIndex = conversations.findIndex(c => c.id === currentConversationId);
+            if (conversationIndex !== -1) {
+                conversations[conversationIndex].lastMessage = messageContent;
+                conversations[conversationIndex].lastMessageTime = newMessage.time;
+                localStorage.setItem(`conversations_${currentUser.id}`, JSON.stringify(conversations));
+            }
+            
+            // Also update for the other user
+            const otherUserId = conversations[conversationIndex].otherUserId;
+            const otherUserConversations = JSON.parse(localStorage.getItem(`conversations_${otherUserId}`)) || [];
+            const otherUserConversationIndex = otherUserConversations.findIndex(c => c.id === currentConversationId);
+            if (otherUserConversationIndex !== -1) {
+                otherUserConversations[otherUserConversationIndex].lastMessage = messageContent;
+                otherUserConversations[otherUserConversationIndex].lastMessageTime = newMessage.time;
+                localStorage.setItem(`conversations_${otherUserId}`, JSON.stringify(otherUserConversations));
+            }
+            
+            // Reload conversation
+            loadConversation(currentConversationId);
+            
+            // Clear input
+            messageInput.value = '';
+        }
+
+        function formatTime(timeString) {
+            const date = new Date(timeString);
+            return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         }
 
         // Initialize the page
