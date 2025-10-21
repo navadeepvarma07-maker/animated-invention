@@ -403,6 +403,159 @@
             background-color: #6a4ca8;
         }
         
+        /* Post Actions */
+        .post-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .action-btn {
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            color: #4e54c8;
+        }
+        
+        .action-btn.liked {
+            color: #ff4757;
+        }
+        
+        .action-btn.saved {
+            color: #ffa502;
+        }
+        
+        .comments-section {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+        
+        .comment {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f5f5f5;
+        }
+        
+        .comment-author {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .comment-content {
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .comment-input {
+            display: flex;
+            margin-top: 10px;
+        }
+        
+        .comment-input input {
+            flex: 1;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .comment-btn {
+            background: none;
+            border: none;
+            color: #4e54c8;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+        
+        /* Share Modal */
+        .share-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .share-modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+        }
+        
+        .share-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 1rem;
+        }
+        
+        .share-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .share-option:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .share-icon {
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+        
+        .whatsapp {
+            color: #25D366;
+        }
+        
+        .facebook {
+            color: #1877F2;
+        }
+        
+        .twitter {
+            color: #1DA1F2;
+        }
+        
+        .instagram {
+            color: #E4405F;
+        }
+        
+        .telegram {
+            color: #0088cc;
+        }
+        
+        .linkedin {
+            color: #0A66C2;
+        }
+        
+        .copy-link {
+            color: #4e54c8;
+        }
+        
         /* Dashboard Styles */
         .dashboard-grid {
             display: grid;
@@ -675,7 +828,7 @@
             color: #888;
         }
         
-        /* Notifications Panel - FIXED */
+        /* Notifications Panel */
         .notifications-panel {
             position: absolute;
             top: 100%;
@@ -769,6 +922,11 @@
             color: #e65100;
         }
         
+        .type-like {
+            background-color: #ffebee;
+            color: #c62828;
+        }
+        
         /* Footer Styles */
         footer {
             background-color: #333;
@@ -796,166 +954,6 @@
         
         .footer-nav a:hover {
             color: white;
-        }
-        
-        /* New Features Styles */
-        .online-indicator {
-            position: absolute;
-            bottom: 5px;
-            right: 5px;
-            width: 12px;
-            height: 12px;
-            background-color: #4CAF50;
-            border: 2px solid white;
-            border-radius: 50%;
-        }
-        
-        .typing-indicator {
-            font-style: italic;
-            color: #888;
-            font-size: 0.8rem;
-            padding: 5px 15px;
-        }
-        
-        .post-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 10px;
-        }
-        
-        .post-action-btn {
-            background: none;
-            border: none;
-            color: #666;
-            cursor: pointer;
-            font-size: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 3px;
-        }
-        
-        .post-action-btn:hover {
-            color: #4e54c8;
-        }
-        
-        .post-action-btn.liked {
-            color: #e74c3c;
-        }
-        
-        .post-stats {
-            display: flex;
-            gap: 15px;
-            margin-top: 10px;
-            font-size: 0.8rem;
-            color: #888;
-        }
-        
-        .dark-mode {
-            background-color: #1a1a1a;
-            color: #f0f0f0;
-        }
-        
-        .dark-mode .post-card,
-        .dark-mode .dashboard-card,
-        .dark-mode .user-directory,
-        .dark-mode .bulletin-prompt,
-        .dark-mode .modal-content {
-            background-color: #2d2d2d;
-            color: #f0f0f0;
-        }
-        
-        .dark-mode input,
-        .dark-mode textarea,
-        .dark-mode select {
-            background-color: #3d3d3d;
-            border-color: #555;
-            color: #f0f0f0;
-        }
-        
-        .theme-toggle {
-            background: none;
-            border: none;
-            color: white;
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
-        
-        /* Share Modal Styles */
-        .share-modal {
-            max-width: 400px;
-        }
-        
-        .share-options {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .share-option {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 15px;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .share-option:hover {
-            background-color: #f9f9ff;
-            transform: translateY(-2px);
-        }
-        
-        .share-icon {
-            font-size: 2rem;
-            margin-bottom: 8px;
-        }
-        
-        .whatsapp {
-            color: #25D366;
-        }
-        
-        .facebook {
-            color: #1877F2;
-        }
-        
-        .twitter {
-            color: #1DA1F2;
-        }
-        
-        .instagram {
-            color: #E4405F;
-        }
-        
-        .youtube {
-            color: #FF0000;
-        }
-        
-        .linkedin {
-            color: #0A66C2;
-        }
-        
-        .share-link {
-            display: flex;
-            margin-top: 15px;
-        }
-        
-        .share-link input {
-            flex: 1;
-            border-top-right-radius: 0;
-            border-bottom-right-radius: 0;
-        }
-        
-        .copy-link-btn {
-            background-color: #4e54c8;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-top-left-radius: 0;
-            border-bottom-left-radius: 0;
-            cursor: pointer;
         }
         
         /* Responsive Design */
@@ -1032,9 +1030,6 @@
                     <button id="login-btn" class="auth-btn">Login</button>
                     <button id="register-btn" class="auth-btn">Register</button>
                     <div id="user-greeting" class="hidden">
-                        <button id="theme-toggle" class="theme-toggle">
-                            <i class="fas fa-moon"></i>
-                        </button>
                         <div class="notification-bell" id="notification-bell">
                             <i class="fas fa-bell"></i>
                             <span id="notification-count" class="notification-count hidden">0</span>
@@ -1161,7 +1156,6 @@
                     <div class="chat-messages" id="chat-messages">
                         <!-- Messages will be loaded here -->
                     </div>
-                    <div id="typing-indicator" class="typing-indicator hidden"></div>
                     <div class="chat-input hidden" id="chat-input">
                         <input type="text" id="message-input" placeholder="Type a message...">
                         <button class="send-btn" id="send-message-btn">
@@ -1188,7 +1182,6 @@
         </div>
     </section>
 
-    <!-- Auth Modal -->
     <div id="auth-modal" class="modal hidden">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -1234,51 +1227,39 @@
     </div>
 
     <!-- Share Modal -->
-    <div id="share-modal" class="modal hidden">
-        <div class="modal-content share-modal">
-            <span class="close-modal">&times;</span>
-            <h3>Share Post</h3>
+    <div id="share-modal" class="share-modal hidden">
+        <div class="share-modal-content">
+            <span class="close-modal" id="close-share-modal">&times;</span>
+            <h3>Share this post</h3>
             <div class="share-options">
-                <div class="share-option" data-platform="whatsapp">
-                    <div class="share-icon whatsapp">
-                        <i class="fab fa-whatsapp"></i>
-                    </div>
+                <div class="share-option whatsapp" data-platform="whatsapp">
+                    <i class="fab fa-whatsapp share-icon"></i>
                     <span>WhatsApp</span>
                 </div>
-                <div class="share-option" data-platform="facebook">
-                    <div class="share-icon facebook">
-                        <i class="fab fa-facebook"></i>
-                    </div>
+                <div class="share-option facebook" data-platform="facebook">
+                    <i class="fab fa-facebook share-icon"></i>
                     <span>Facebook</span>
                 </div>
-                <div class="share-option" data-platform="twitter">
-                    <div class="share-icon twitter">
-                        <i class="fab fa-twitter"></i>
-                    </div>
+                <div class="share-option twitter" data-platform="twitter">
+                    <i class="fab fa-twitter share-icon"></i>
                     <span>Twitter</span>
                 </div>
-                <div class="share-option" data-platform="instagram">
-                    <div class="share-icon instagram">
-                        <i class="fab fa-instagram"></i>
-                    </div>
+                <div class="share-option instagram" data-platform="instagram">
+                    <i class="fab fa-instagram share-icon"></i>
                     <span>Instagram</span>
                 </div>
-                <div class="share-option" data-platform="youtube">
-                    <div class="share-icon youtube">
-                        <i class="fab fa-youtube"></i>
-                    </div>
-                    <span>YouTube</span>
+                <div class="share-option telegram" data-platform="telegram">
+                    <i class="fab fa-telegram share-icon"></i>
+                    <span>Telegram</span>
                 </div>
-                <div class="share-option" data-platform="linkedin">
-                    <div class="share-icon linkedin">
-                        <i class="fab fa-linkedin"></i>
-                    </div>
+                <div class="share-option linkedin" data-platform="linkedin">
+                    <i class="fab fa-linkedin share-icon"></i>
                     <span>LinkedIn</span>
                 </div>
-            </div>
-            <div class="share-link">
-                <input type="text" id="share-url" readonly>
-                <button class="copy-link-btn" id="copy-link-btn">Copy</button>
+                <div class="share-option copy-link" data-platform="copy">
+                    <i class="fas fa-link share-icon"></i>
+                    <span>Copy Link</span>
+                </div>
             </div>
         </div>
     </div>
@@ -1299,9 +1280,6 @@
     </footer>
 
     <script>
-        // Clear all previous data
-        localStorage.clear();
-
         // DOM Elements
         const loginBtn = document.getElementById('login-btn');
         const registerBtn = document.getElementById('register-btn');
@@ -1315,8 +1293,7 @@
         const messagesSection = document.getElementById('messages');
         const usersSection = document.getElementById('users');
         const authModal = document.getElementById('auth-modal');
-        const shareModal = document.getElementById('share-modal');
-        const closeModalBtns = document.querySelectorAll('.close-modal');
+        const closeModalBtn = document.querySelector('.close-modal');
         const switchToRegister = document.getElementById('switch-to-register');
         const switchToLogin = document.getElementById('switch-to-login');
         const loginForm = document.getElementById('login-form');
@@ -1331,12 +1308,9 @@
         const profileName = document.getElementById('profile-name');
         const profileEmail = document.getElementById('profile-email');
         const joinDate = document.getElementById('join-date');
-        const postCount = document.getElementById('post-count');
-        const messageCount = document.getElementById('message-count');
         const userPostsContainer = document.getElementById('user-posts');
         const savedPostsContainer = document.getElementById('saved-posts');
         const editProfileBtn = document.getElementById('edit-profile-btn');
-        const themeToggle = document.getElementById('theme-toggle');
         
         // Messaging elements
         const conversationsList = document.getElementById('conversations-list');
@@ -1345,7 +1319,6 @@
         const chatInput = document.getElementById('chat-input');
         const messageInput = document.getElementById('message-input');
         const sendMessageBtn = document.getElementById('send-message-btn');
-        const typingIndicator = document.getElementById('typing-indicator');
         
         // User directory elements
         const userSearchInput = document.getElementById('user-search-input');
@@ -1358,22 +1331,20 @@
         const notificationsPanel = document.getElementById('notifications-panel');
         const clearNotificationsBtn = document.getElementById('clear-notifications');
         
-        // Share modal elements
-        const shareOptions = document.querySelectorAll('.share-option');
-        const shareUrlInput = document.getElementById('share-url');
-        const copyLinkBtn = document.getElementById('copy-link-btn');
-        
         // Media upload elements
         const mediaDropArea = document.getElementById('media-drop-area');
         const mediaUpload = document.getElementById('media-upload');
         const mediaPreview = document.getElementById('media-preview');
+        
+        // Share modal elements
+        const shareModal = document.getElementById('share-modal');
+        const closeShareModal = document.getElementById('close-share-modal');
+        const shareOptions = document.querySelectorAll('.share-option');
 
         // Current user state
         let currentUser = null;
         let mediaFiles = [];
         let currentConversationId = null;
-        let isDarkMode = localStorage.getItem('darkMode') === 'true';
-        let typingTimeout = null;
         let currentPostToShare = null;
 
         // Event Listeners
@@ -1385,17 +1356,14 @@
                 updateUIForLoggedInUser();
             }
             
-            // Apply dark mode if enabled
-            if (isDarkMode) {
-                document.body.classList.add('dark-mode');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            }
-            
             // Load posts
             loadPosts();
             
             // Set up event listeners
             setupEventListeners();
+            
+            // Initialize sample data
+            initializeSampleData();
         });
 
         function setupEventListeners() {
@@ -1406,9 +1374,7 @@
             promptLoginBtn.addEventListener('click', showLoginModal);
             
             // Modal interactions
-            closeModalBtns.forEach(btn => {
-                btn.addEventListener('click', closeAllModals);
-            });
+            closeModalBtn.addEventListener('click', closeAuthModal);
             switchToRegister.addEventListener('click', switchToRegisterForm);
             switchToLogin.addEventListener('click', switchToLoginForm);
             
@@ -1444,9 +1410,6 @@
                 }
             });
             
-            // Typing indicator
-            messageInput.addEventListener('input', handleTyping);
-            
             // User directory
             userSearchBtn.addEventListener('click', searchUsers);
             userSearchInput.addEventListener('keypress', (e) => {
@@ -1459,28 +1422,64 @@
             notificationBell.addEventListener('click', toggleNotifications);
             clearNotificationsBtn.addEventListener('click', clearAllNotifications);
             
-            // Theme toggle
-            themeToggle.addEventListener('click', toggleDarkMode);
-            
-            // Share functionality
+            // Share modal
+            closeShareModal.addEventListener('click', () => shareModal.classList.add('hidden'));
             shareOptions.forEach(option => {
-                option.addEventListener('click', function() {
-                    const platform = this.getAttribute('data-platform');
-                    shareOnPlatform(platform);
-                });
+                option.addEventListener('click', handleShare);
             });
             
-            copyLinkBtn.addEventListener('click', copyShareLink);
-            
-            // Close modal when clicking outside
+            // Close modals when clicking outside
             window.addEventListener('click', function(event) {
-                if (event.target === authModal || event.target === shareModal) {
-                    closeAllModals();
+                if (event.target === authModal) {
+                    closeAuthModal();
+                }
+                if (event.target === shareModal) {
+                    shareModal.classList.add('hidden');
                 }
                 if (!notificationBell.contains(event.target)) {
                     notificationsPanel.classList.remove('active');
                 }
             });
+        }
+
+        function initializeSampleData() {
+            // Check if we need to create sample data
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            
+            // If no posts exist, create a sample post
+            if (posts.length === 0) {
+                const samplePost = {
+                    id: Date.now(),
+                    title: "Welcome to Arnama Connect!",
+                    content: "Welcome to our community hub! This is a place where neighbors can connect, share resources, and support each other. Feel free to post about events, items for sale, or ask for help.",
+                    category: "general",
+                    author: "MNV",
+                    authorId: 1,
+                    date: new Date().toLocaleDateString(),
+                    likes: 0,
+                    likedBy: [],
+                    comments: [],
+                    media: []
+                };
+                
+                posts.push(samplePost);
+                localStorage.setItem('posts', JSON.stringify(posts));
+            }
+            
+            // Check if we need to create sample users
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            if (users.length === 0) {
+                const sampleUser = {
+                    id: 1,
+                    name: "MNV",
+                    email: "mnv@example.com",
+                    password: "password",
+                    joinDate: new Date().toLocaleDateString()
+                };
+                
+                users.push(sampleUser);
+                localStorage.setItem('users', JSON.stringify(users));
+            }
         }
 
         function showLoginModal() {
@@ -1495,9 +1494,8 @@
             loginForm.classList.add('hidden');
         }
 
-        function closeAllModals() {
+        function closeAuthModal() {
             authModal.classList.add('hidden');
-            shareModal.classList.add('hidden');
             // Clear form fields
             document.getElementById('login-email').value = '';
             document.getElementById('login-password').value = '';
@@ -1539,7 +1537,7 @@
                 currentUser = user;
                 localStorage.setItem('currentUser', JSON.stringify(currentUser));
                 updateUIForLoggedInUser();
-                closeAllModals();
+                closeAuthModal();
                 alert('Login successful!');
             } else {
                 alert('Invalid email or password');
@@ -1573,8 +1571,7 @@
                 email,
                 password,
                 address,
-                joinDate: new Date().toLocaleDateString(),
-                lastSeen: new Date().toISOString()
+                joinDate: new Date().toLocaleDateString()
             };
             
             // Save user
@@ -1585,21 +1582,11 @@
             currentUser = newUser;
             localStorage.setItem('currentUser', JSON.stringify(currentUser));
             updateUIForLoggedInUser();
-            closeAllModals();
+            closeAuthModal();
             alert('Registration successful! You are now logged in.');
         }
 
         function logout() {
-            // Update last seen
-            if (currentUser) {
-                const users = JSON.parse(localStorage.getItem('users') || '[]');
-                const userIndex = users.findIndex(u => u.id === currentUser.id);
-                if (userIndex !== -1) {
-                    users[userIndex].lastSeen = new Date().toISOString();
-                    localStorage.setItem('users', JSON.stringify(users));
-                }
-            }
-            
             currentUser = null;
             localStorage.removeItem('currentUser');
             updateUIForLoggedOutUser();
@@ -1617,7 +1604,7 @@
             postFormContainer.classList.remove('hidden');
             loginPrompt.classList.add('hidden');
             
-            // Show dashboard, messages, and users links
+            // Show dashboard and messages links
             dashboardLink.classList.remove('hidden');
             messagesLink.classList.remove('hidden');
             usersLink.classList.remove('hidden');
@@ -1638,9 +1625,6 @@
             
             // Check for notifications
             checkNotifications();
-            
-            // Update user stats
-            updateUserStats();
         }
 
         function updateUIForLoggedOutUser() {
@@ -1653,12 +1637,12 @@
             postFormContainer.classList.add('hidden');
             loginPrompt.classList.remove('hidden');
             
-            // Hide dashboard, messages, and users links
+            // Hide dashboard and messages links
             dashboardLink.classList.add('hidden');
             messagesLink.classList.add('hidden');
             usersLink.classList.add('hidden');
             
-            // Hide dashboard, messages, and users if visible
+            // Hide dashboard and messages if visible
             dashboardSection.classList.add('hidden');
             messagesSection.classList.add('hidden');
             usersSection.classList.add('hidden');
@@ -1767,10 +1751,12 @@
             // Check if current user is the author
             const isCurrentUserAuthor = currentUser && post.authorId === currentUser.id;
             
-            // Get likes and comments
-            const likes = post.likes || [];
-            const comments = post.comments || [];
-            const isLiked = likes.includes(currentUser?.id);
+            // Check if current user has liked the post
+            const isLiked = currentUser && post.likedBy && post.likedBy.includes(currentUser.id);
+            
+            // Check if current user has saved the post
+            const savedPosts = JSON.parse(localStorage.getItem(`savedPosts_${currentUser ? currentUser.id : ''}`)) || [];
+            const isSaved = savedPosts.includes(post.id);
             
             postDiv.innerHTML = `
                 <h3 class="post-title">${post.title}</h3>
@@ -1781,39 +1767,107 @@
                     <span class="post-date">${post.date}</span>
                 </div>
                 <span class="post-category ${categoryClass}">${post.category}</span>
-                <div class="post-stats">
-                    <span><i class="fas fa-heart"></i> ${likes.length} likes</span>
-                    <span><i class="fas fa-comment"></i> ${comments.length} comments</span>
-                </div>
+                
+                <!-- Post Actions -->
                 <div class="post-actions">
-                    <button class="post-action-btn ${isLiked ? 'liked' : ''}" data-post-id="${post.id}" data-action="like">
-                        <i class="fas fa-heart"></i> ${isLiked ? 'Liked' : 'Like'}
+                    <button class="action-btn like-btn ${isLiked ? 'liked' : ''}" data-post-id="${post.id}">
+                        <i class="fas fa-heart"></i>
+                        <span class="like-count">${post.likes || 0}</span>
                     </button>
-                    <button class="post-action-btn" data-post-id="${post.id}" data-action="comment">
-                        <i class="fas fa-comment"></i> Comment
+                    <button class="action-btn comment-btn" data-post-id="${post.id}">
+                        <i class="fas fa-comment"></i>
+                        <span class="comment-count">${post.comments ? post.comments.length : 0}</span>
                     </button>
-                    <button class="post-action-btn" data-post-id="${post.id}" data-action="share">
-                        <i class="fas fa-share"></i> Share
+                    <button class="action-btn save-btn ${isSaved ? 'saved' : ''}" data-post-id="${post.id}">
+                        <i class="fas fa-bookmark"></i>
+                        <span>Save</span>
+                    </button>
+                    <button class="action-btn share-btn" data-post-id="${post.id}">
+                        <i class="fas fa-share-alt"></i>
+                        <span>Share</span>
                     </button>
                 </div>
+                
+                <!-- Comments Section -->
+                <div class="comments-section" id="comments-${post.id}" style="display: none;">
+                    ${post.comments && post.comments.length > 0 ? 
+                        post.comments.map(comment => `
+                            <div class="comment">
+                                <div class="comment-author">${comment.author}</div>
+                                <div class="comment-content">${comment.content}</div>
+                            </div>
+                        `).join('') : 
+                        '<p>No comments yet.</p>'
+                    }
+                    ${currentUser ? `
+                        <div class="comment-input">
+                            <input type="text" placeholder="Add a comment..." id="comment-input-${post.id}">
+                            <button class="comment-btn" data-post-id="${post.id}">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    ` : ''}
+                </div>
+                
                 ${!isCurrentUserAuthor && currentUser ? `<button class="message-author-btn" data-author-id="${post.authorId}" data-author-name="${post.author}">Message ${post.author}</button>` : ''}
             `;
             
             // Add event listeners to action buttons
-            const likeBtn = postDiv.querySelector('[data-action="like"]');
-            likeBtn.addEventListener('click', function() {
-                handlePostAction(post.id, 'like');
-            });
-            
-            const commentBtn = postDiv.querySelector('[data-action="comment"]');
-            commentBtn.addEventListener('click', function() {
-                handlePostAction(post.id, 'comment');
-            });
-            
-            const shareBtn = postDiv.querySelector('[data-action="share"]');
-            shareBtn.addEventListener('click', function() {
-                openShareModal(post);
-            });
+            if (currentUser) {
+                // Like button
+                const likeBtn = postDiv.querySelector('.like-btn');
+                likeBtn.addEventListener('click', function() {
+                    const postId = parseInt(this.getAttribute('data-post-id'));
+                    toggleLike(postId);
+                });
+                
+                // Comment button
+                const commentBtn = postDiv.querySelector('.comment-btn');
+                commentBtn.addEventListener('click', function() {
+                    const postId = parseInt(this.getAttribute('data-post-id'));
+                    const commentsSection = document.getElementById(`comments-${postId}`);
+                    commentsSection.style.display = commentsSection.style.display === 'none' ? 'block' : 'none';
+                });
+                
+                // Save button
+                const saveBtn = postDiv.querySelector('.save-btn');
+                saveBtn.addEventListener('click', function() {
+                    const postId = parseInt(this.getAttribute('data-post-id'));
+                    toggleSavePost(postId);
+                });
+                
+                // Share button
+                const shareBtn = postDiv.querySelector('.share-btn');
+                shareBtn.addEventListener('click', function() {
+                    const postId = parseInt(this.getAttribute('data-post-id'));
+                    showShareModal(postId);
+                });
+                
+                // Comment input
+                const commentInput = postDiv.querySelector(`#comment-input-${post.id}`);
+                if (commentInput) {
+                    const commentSubmitBtn = postDiv.querySelector('.comment-btn[data-post-id]');
+                    commentSubmitBtn.addEventListener('click', function() {
+                        const postId = parseInt(this.getAttribute('data-post-id'));
+                        const content = commentInput.value.trim();
+                        if (content) {
+                            addComment(postId, content);
+                            commentInput.value = '';
+                        }
+                    });
+                    
+                    commentInput.addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            const postId = parseInt(this.getAttribute('data-post-id'));
+                            const content = this.value.trim();
+                            if (content) {
+                                addComment(postId, content);
+                                this.value = '';
+                            }
+                        }
+                    });
+                }
+            }
             
             // Add event listener to message button
             if (!isCurrentUserAuthor && currentUser) {
@@ -1828,138 +1882,189 @@
             return postDiv;
         }
 
-        function handlePostAction(postId, action) {
-            if (!currentUser) {
-                alert('Please log in to perform this action');
-                return;
-            }
+        function toggleLike(postId) {
+            if (!currentUser) return;
             
             const posts = JSON.parse(localStorage.getItem('posts')) || [];
-            const postIndex = posts.findIndex(p => p.id == postId);
+            const postIndex = posts.findIndex(p => p.id === postId);
             
             if (postIndex === -1) return;
             
-            if (action === 'like') {
-                // Initialize likes array if it doesn't exist
-                if (!posts[postIndex].likes) {
-                    posts[postIndex].likes = [];
+            const post = posts[postIndex];
+            
+            // Initialize likes and likedBy if they don't exist
+            if (!post.likes) post.likes = 0;
+            if (!post.likedBy) post.likedBy = [];
+            
+            // Check if user already liked the post
+            const userIndex = post.likedBy.indexOf(currentUser.id);
+            
+            if (userIndex === -1) {
+                // Like the post
+                post.likes++;
+                post.likedBy.push(currentUser.id);
+                
+                // Create notification for post author
+                if (post.authorId !== currentUser.id) {
+                    createNotification(post.authorId, 'like', `${currentUser.name} liked your post: "${post.title}"`, postId);
                 }
-                
-                // Check if user already liked the post
-                const likeIndex = posts[postIndex].likes.indexOf(currentUser.id);
-                
-                if (likeIndex === -1) {
-                    // Add like
-                    posts[postIndex].likes.push(currentUser.id);
-                } else {
-                    // Remove like
-                    posts[postIndex].likes.splice(likeIndex, 1);
-                }
-                
-                // Save updated posts
-                localStorage.setItem('posts', JSON.stringify(posts));
-                
-                // Reload posts
-                loadPosts();
-                
-                // Update user stats
-                updateUserStats();
-            } else if (action === 'comment') {
-                const comment = prompt('Enter your comment:');
-                if (comment && comment.trim()) {
-                    // Initialize comments array if it doesn't exist
-                    if (!posts[postIndex].comments) {
-                        posts[postIndex].comments = [];
-                    }
-                    
-                    // Add comment
-                    posts[postIndex].comments.push({
-                        userId: currentUser.id,
-                        userName: currentUser.name,
-                        content: comment.trim(),
-                        time: new Date().toISOString()
-                    });
-                    
-                    // Save updated posts
-                    localStorage.setItem('posts', JSON.stringify(posts));
-                    
-                    // Reload posts
-                    loadPosts();
-                    
-                    // Create notification for post author
-                    if (posts[postIndex].authorId !== currentUser.id) {
-                        createCommentNotification(posts[postIndex].authorId, currentUser.name, posts[postIndex].title);
-                    }
-                    
-                    // Update user stats
-                    updateUserStats();
-                }
+            } else {
+                // Unlike the post
+                post.likes--;
+                post.likedBy.splice(userIndex, 1);
+            }
+            
+            // Save updated posts
+            localStorage.setItem('posts', JSON.stringify(posts));
+            
+            // Reload posts
+            loadPosts();
+            
+            // Update notifications
+            checkNotifications();
+        }
+
+        function toggleSavePost(postId) {
+            if (!currentUser) return;
+            
+            const savedPosts = JSON.parse(localStorage.getItem(`savedPosts_${currentUser.id}`)) || [];
+            const postIndex = savedPosts.indexOf(postId);
+            
+            if (postIndex === -1) {
+                // Save the post
+                savedPosts.push(postId);
+            } else {
+                // Unsave the post
+                savedPosts.splice(postIndex, 1);
+            }
+            
+            // Save updated saved posts
+            localStorage.setItem(`savedPosts_${currentUser.id}`, JSON.stringify(savedPosts));
+            
+            // Reload posts
+            loadPosts();
+            
+            // Update saved posts in dashboard
+            if (dashboardSection.classList.contains('hidden') === false) {
+                loadSavedPosts();
             }
         }
 
-        function openShareModal(post) {
-            currentPostToShare = post;
-            
-            // Generate share URL
-            const shareUrl = `${window.location.origin}${window.location.pathname}#post-${post.id}`;
-            shareUrlInput.value = shareUrl;
-            
-            // Show share modal
+        function showShareModal(postId) {
+            currentPostToShare = postId;
             shareModal.classList.remove('hidden');
         }
 
-        function shareOnPlatform(platform) {
-            if (!currentPostToShare) return;
+        function handleShare(e) {
+            const platform = e.currentTarget.getAttribute('data-platform');
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            const post = posts.find(p => p.id === currentPostToShare);
             
-            const postTitle = encodeURIComponent(currentPostToShare.title);
-            const postContent = encodeURIComponent(currentPostToShare.content);
-            const shareUrl = encodeURIComponent(shareUrlInput.value);
+            if (!post) return;
             
-            let shareWindowUrl = '';
+            const postUrl = `${window.location.origin}${window.location.pathname}#post-${post.id}`;
+            const text = `Check out this post on Arnama Connect: "${post.title}"`;
+            
+            let shareUrl = '';
             
             switch(platform) {
                 case 'whatsapp':
-                    shareWindowUrl = `https://api.whatsapp.com/send?text=${postTitle} - ${postContent} ${shareUrl}`;
+                    shareUrl = `https://wa.me/?text=${encodeURIComponent(text + ' ' + postUrl)}`;
                     break;
                 case 'facebook':
-                    shareWindowUrl = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}&quote=${postTitle}`;
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(postUrl)}`;
                     break;
                 case 'twitter':
-                    shareWindowUrl = `https://twitter.com/intent/tweet?text=${postTitle}&url=${shareUrl}`;
+                    shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(postUrl)}`;
                     break;
                 case 'instagram':
-                    // Instagram doesn't have a direct share URL, so we'll just copy the link
-                    copyShareLink();
-                    alert('Link copied! You can now paste it in your Instagram post.');
+                    // Instagram doesn't support direct sharing via URL
+                    alert('To share on Instagram, copy the link and paste it in your Instagram post');
+                    copyToClipboard(postUrl);
+                    shareModal.classList.add('hidden');
                     return;
-                case 'youtube':
-                    // YouTube doesn't have a direct share URL for posts
-                    alert('To share on YouTube, create a video about this post and include the link in your description.');
-                    return;
-                case 'linkedin':
-                    shareWindowUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${shareUrl}`;
+                case 'telegram':
+                    shareUrl = `https://t.me/share/url?url=${encodeURIComponent(postUrl)}&text=${encodeURIComponent(text)}`;
                     break;
-                default:
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(postUrl)}`;
+                    break;
+                case 'copy':
+                    copyToClipboard(postUrl);
+                    alert('Link copied to clipboard!');
+                    shareModal.classList.add('hidden');
                     return;
             }
             
-            // Open share window
-            window.open(shareWindowUrl, '_blank', 'width=600,height=400');
+            if (shareUrl) {
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+            }
+            
+            shareModal.classList.add('hidden');
         }
 
-        function copyShareLink() {
-            shareUrlInput.select();
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
             document.execCommand('copy');
+            document.body.removeChild(textarea);
+        }
+
+        function addComment(postId, content) {
+            if (!currentUser) return;
             
-            // Visual feedback
-            const originalText = copyLinkBtn.textContent;
-            copyLinkBtn.textContent = 'Copied!';
-            copyLinkBtn.style.backgroundColor = '#4CAF50';
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            const postIndex = posts.findIndex(p => p.id === postId);
             
-            setTimeout(() => {
-                copyLinkBtn.textContent = originalText;
-                copyLinkBtn.style.backgroundColor = '#4e54c8';
-            }, 2000);
+            if (postIndex === -1) return;
+            
+            const post = posts[postIndex];
+            
+            // Initialize comments if they don't exist
+            if (!post.comments) post.comments = [];
+            
+            // Add new comment
+            const newComment = {
+                id: Date.now(),
+                author: currentUser.name,
+                authorId: currentUser.id,
+                content: content,
+                date: new Date().toLocaleDateString()
+            };
+            
+            post.comments.push(newComment);
+            
+            // Save updated posts
+            localStorage.setItem('posts', JSON.stringify(posts));
+            
+            // Create notification for post author
+            if (post.authorId !== currentUser.id) {
+                createNotification(post.authorId, 'comment', `${currentUser.name} commented on your post: "${post.title}"`, postId);
+            }
+            
+            // Reload posts
+            loadPosts();
+            
+            // Update notifications
+            checkNotifications();
+        }
+
+        function createNotification(userId, type, message, postId) {
+            const notifications = JSON.parse(localStorage.getItem(`notifications_${userId}`)) || [];
+            
+            const newNotification = {
+                id: Date.now(),
+                type: type,
+                message: message,
+                postId: postId,
+                read: false,
+                time: new Date().toISOString()
+            };
+            
+            notifications.unshift(newNotification);
+            localStorage.setItem(`notifications_${userId}`, JSON.stringify(notifications));
         }
 
         function handlePostSubmit(e) {
@@ -1983,9 +2088,10 @@
                 author: currentUser.name,
                 authorId: currentUser.id,
                 date: new Date().toLocaleDateString(),
-                media: [],
-                likes: [],
-                comments: []
+                likes: 0,
+                likedBy: [],
+                comments: [],
+                media: []
             };
             
             // Process media files
@@ -2006,9 +2112,6 @@
             posts.unshift(newPost); // Add to beginning of array
             localStorage.setItem('posts', JSON.stringify(posts));
             
-            // Create notification for all users
-            createPostNotification(newPost);
-            
             // Reload posts
             loadPosts();
             
@@ -2020,9 +2123,6 @@
             // Add to user's posts
             loadUserPosts();
             
-            // Update user stats
-            updateUserStats();
-            
             alert('Your post has been published!');
         }
 
@@ -2030,9 +2130,8 @@
             // Show dashboard section
             dashboardSection.classList.remove('hidden');
             
-            // Hide other sections
+            // Hide messages section
             messagesSection.classList.add('hidden');
-            usersSection.classList.add('hidden');
             
             // Scroll to dashboard
             dashboardSection.scrollIntoView({ behavior: 'smooth' });
@@ -2042,22 +2141,30 @@
                 profileName.textContent = currentUser.name;
                 profileEmail.textContent = currentUser.email;
                 joinDate.textContent = currentUser.joinDate;
+                
+                // Update post count
+                const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+                const userPosts = posts.filter(post => post.authorId === currentUser.id);
+                document.getElementById('post-count').textContent = userPosts.length;
+                
+                // Update message count
+                const conversations = JSON.parse(localStorage.getItem(`conversations_${currentUser.id}`)) || [];
+                document.getElementById('message-count').textContent = conversations.length;
             }
             
             // Load user's posts
             loadUserPosts();
             
-            // Update user stats
-            updateUserStats();
+            // Load saved posts
+            loadSavedPosts();
         }
 
         function showMessages() {
             // Show messages section
             messagesSection.classList.remove('hidden');
             
-            // Hide other sections
+            // Hide dashboard section
             dashboardSection.classList.add('hidden');
-            usersSection.classList.add('hidden');
             
             // Scroll to messages
             messagesSection.scrollIntoView({ behavior: 'smooth' });
@@ -2070,7 +2177,7 @@
             // Show users section
             usersSection.classList.remove('hidden');
             
-            // Hide other sections
+            // Hide dashboard section
             dashboardSection.classList.add('hidden');
             messagesSection.classList.add('hidden');
             
@@ -2105,6 +2212,33 @@
             });
         }
 
+        function loadSavedPosts() {
+            if (!currentUser) return;
+            
+            // Clear saved posts container
+            savedPostsContainer.innerHTML = '';
+            
+            // Get saved posts from localStorage
+            const savedPosts = JSON.parse(localStorage.getItem(`savedPosts_${currentUser.id}`)) || [];
+            
+            if (savedPosts.length === 0) {
+                savedPostsContainer.innerHTML = '<p>You haven\'t saved any posts yet.</p>';
+                return;
+            }
+            
+            // Get all posts
+            const posts = JSON.parse(localStorage.getItem('posts') || '[]');
+            
+            // Filter saved posts
+            const savedPostObjects = posts.filter(post => savedPosts.includes(post.id));
+            
+            // Display saved posts
+            savedPostObjects.forEach(post => {
+                const postElement = createPostElement(post);
+                savedPostsContainer.appendChild(postElement);
+            });
+        }
+
         function loadConversations() {
             if (!currentUser) return;
             
@@ -2125,19 +2259,12 @@
                 conversationElement.className = 'conversation-item';
                 conversationElement.setAttribute('data-id', conversation.id);
                 
-                // Check if conversation has unread messages
-                const messages = JSON.parse(localStorage.getItem(`messages_${conversation.id}`)) || [];
-                const unreadMessages = messages.filter(msg => 
-                    msg.senderId !== currentUser.id && !msg.read
-                );
-                
                 conversationElement.innerHTML = `
                     <div class="conversation-header">
                         <span class="conversation-name">${conversation.otherUserName}</span>
                         <span class="conversation-time">${formatTime(conversation.lastMessageTime)}</span>
                     </div>
                     <div class="conversation-preview">${conversation.lastMessage}</div>
-                    ${unreadMessages.length > 0 ? '<div class="unread-indicator"></div>' : ''}
                 `;
                 
                 // Add click event to load conversation
@@ -2149,9 +2276,6 @@
                     });
                     // Add active class to clicked conversation
                     conversationElement.classList.add('active');
-                    
-                    // Mark messages as read
-                    markMessagesAsRead(conversation.id);
                 });
                 
                 conversationsList.appendChild(conversationElement);
@@ -2180,14 +2304,9 @@
                 const userElement = document.createElement('div');
                 userElement.className = 'user-card';
                 
-                // Check if user is online (last seen within 5 minutes)
-                const lastSeen = new Date(user.lastSeen || user.joinDate);
-                const isOnline = (Date.now() - lastSeen.getTime()) < 5 * 60 * 1000;
-                
                 userElement.innerHTML = `
                     <div class="user-avatar">
                         ${user.name.charAt(0).toUpperCase()}
-                        ${isOnline ? '<div class="online-indicator"></div>' : ''}
                     </div>
                     <div class="user-name">${user.name}</div>
                     <div class="user-email">${user.email}</div>
@@ -2237,14 +2356,9 @@
                 const userElement = document.createElement('div');
                 userElement.className = 'user-card';
                 
-                // Check if user is online (last seen within 5 minutes)
-                const lastSeen = new Date(user.lastSeen || user.joinDate);
-                const isOnline = (Date.now() - lastSeen.getTime()) < 5 * 60 * 1000;
-                
                 userElement.innerHTML = `
                     <div class="user-avatar">
                         ${user.name.charAt(0).toUpperCase()}
-                        ${isOnline ? '<div class="online-indicator"></div>' : ''}
                     </div>
                     <div class="user-name">${user.name}</div>
                     <div class="user-email">${user.email}</div>
@@ -2355,8 +2469,7 @@
                 senderId: currentUser.id,
                 senderName: currentUser.name,
                 content: messageContent,
-                time: new Date().toISOString(),
-                read: false
+                time: new Date().toISOString()
             };
             
             // Get existing messages
@@ -2385,10 +2498,10 @@
                 otherUserConversations[otherUserConversationIndex].lastMessage = messageContent;
                 otherUserConversations[otherUserConversationIndex].lastMessageTime = newMessage.time;
                 localStorage.setItem(`conversations_${otherUserId}`, JSON.stringify(otherUserConversations));
+                
+                // Create notification for the other user
+                createNotification(otherUserId, 'message', `${currentUser.name} sent you a message`, null);
             }
-            
-            // Create notification for the other user
-            createMessageNotification(otherUserId, currentUser.name, messageContent);
             
             // Reload conversation
             loadConversation(currentConversationId);
@@ -2396,103 +2509,8 @@
             // Clear input
             messageInput.value = '';
             
-            // Update user stats
-            updateUserStats();
-        }
-
-        function handleTyping() {
-            // Show typing indicator
-            if (currentConversationId) {
-                typingIndicator.textContent = "You are typing...";
-                typingIndicator.classList.remove('hidden');
-                
-                // Clear previous timeout
-                if (typingTimeout) {
-                    clearTimeout(typingTimeout);
-                }
-                
-                // Hide typing indicator after 1 second of inactivity
-                typingTimeout = setTimeout(() => {
-                    typingIndicator.classList.add('hidden');
-                }, 1000);
-            }
-        }
-
-        function createMessageNotification(userId, senderName, message) {
-            // Get user's notifications
-            const notifications = JSON.parse(localStorage.getItem(`notifications_${userId}`)) || [];
-            
-            // Create new notification
-            const newNotification = {
-                id: Date.now(),
-                type: 'message',
-                message: `${senderName} sent you a message: "${message}"`,
-                time: new Date().toISOString(),
-                read: false,
-                conversationId: currentConversationId
-            };
-            
-            // Add notification
-            notifications.unshift(newNotification);
-            localStorage.setItem(`notifications_${userId}`, JSON.stringify(notifications));
-            
-            // Update notification count for the user if they're logged in
-            if (userId === currentUser.id) {
-                checkNotifications();
-            }
-        }
-
-        function createPostNotification(post) {
-            // Get all users
-            const users = JSON.parse(localStorage.getItem('users') || '[]');
-            
-            // Create notification for each user (except the post author)
-            users.forEach(user => {
-                if (user.id !== post.authorId) {
-                    const notifications = JSON.parse(localStorage.getItem(`notifications_${user.id}`)) || [];
-                    
-                    const newNotification = {
-                        id: Date.now(),
-                        type: 'post',
-                        message: `${post.author} posted: "${post.title}"`,
-                        time: new Date().toISOString(),
-                        read: false,
-                        postId: post.id
-                    };
-                    
-                    notifications.unshift(newNotification);
-                    localStorage.setItem(`notifications_${user.id}`, JSON.stringify(notifications));
-                    
-                    // Update notification count for the user if they're logged in
-                    if (user.id === currentUser.id) {
-                        checkNotifications();
-                    }
-                }
-            });
-        }
-
-        function createCommentNotification(userId, commenterName, postTitle) {
-            // Get user's notifications
-            const notifications = JSON.parse(localStorage.getItem(`notifications_${userId}`)) || [];
-            
-            // Create new notification
-            const newNotification = {
-                id: Date.now(),
-                type: 'comment',
-                message: `${commenterName} commented on your post: "${postTitle}"`,
-                time: new Date().toISOString(),
-                read: false,
-                postId: null // We don't have the post ID here
-            };
-            
-            // Add notification
-            notifications.unshift(newNotification);
-            localStorage.setItem(`notifications_${userId}`, JSON.stringify(notifications));
-            
-            // Update notification count for the user if they're logged in
-            if (userId === currentUser.id) {
-                checkNotifications();
-            }
+            // Update notifications
+            checkNotifications();
         }
 
         function checkNotifications() {
@@ -2508,77 +2526,73 @@
             if (unreadCount > 0) {
                 notificationCount.textContent = unreadCount;
                 notificationCount.classList.remove('hidden');
+                
+                // Update notifications panel
+                updateNotificationsPanel(notifications);
             } else {
                 notificationCount.classList.add('hidden');
+                notificationsPanel.innerHTML = `
+                    <div class="notification-header">
+                        <h4>Notifications</h4>
+                        <button class="clear-notifications" id="clear-notifications">Clear All</button>
+                    </div>
+                    <div class="notification-item">
+                        <p>No new notifications</p>
+                    </div>
+                `;
             }
-            
-            // Update notifications panel
-            updateNotificationsPanel(notifications);
         }
 
         function updateNotificationsPanel(notifications) {
-            // Clear notifications panel (except the header)
-            const notificationsContainer = notificationsPanel;
-            const existingNotifications = notificationsContainer.querySelectorAll('.notification-item');
-            existingNotifications.forEach(notification => notification.remove());
+            let notificationsHTML = `
+                <div class="notification-header">
+                    <h4>Notifications</h4>
+                    <button class="clear-notifications" id="clear-notifications">Clear All</button>
+                </div>
+            `;
             
-            if (notifications.length === 0) {
-                const noNotifications = document.createElement('div');
-                noNotifications.className = 'notification-item';
-                noNotifications.innerHTML = '<div class="notification-message">No notifications</div>';
-                notificationsContainer.appendChild(noNotifications);
-                return;
-            }
-            
-            // Display recent notifications (max 10)
-            const recentNotifications = notifications.slice(0, 10);
-            
-            recentNotifications.forEach(notification => {
-                const notificationElement = document.createElement('div');
-                notificationElement.className = `notification-item ${notification.read ? '' : 'unread'}`;
+            notifications.forEach(notification => {
+                const typeClass = `type-${notification.type}`;
+                const unreadClass = notification.read ? '' : 'unread';
                 
-                notificationElement.innerHTML = `
-                    <div class="notification-message">
-                        <span class="notification-type type-${notification.type}">${notification.type}</span>
-                        ${notification.message}
+                notificationsHTML += `
+                    <div class="notification-item ${unreadClass}" data-id="${notification.id}">
+                        <span class="notification-type ${typeClass}">${notification.type}</span>
+                        <div class="notification-message">${notification.message}</div>
+                        <div class="notification-time">${formatTime(notification.time)}</div>
                     </div>
-                    <div class="notification-time">${formatTime(notification.time)}</div>
                 `;
-                
-                // Add click event
-                notificationElement.addEventListener('click', () => {
-                    // Mark as read
-                    notification.read = true;
-                    localStorage.setItem(`notifications_${currentUser.id}`, JSON.stringify(notifications));
-                    
-                    // Handle notification click based on type
-                    if (notification.type === 'message' && notification.conversationId) {
-                        // Navigate to messages and open the conversation
-                        const conversations = JSON.parse(localStorage.getItem(`conversations_${currentUser.id}`)) || [];
-                        const conversation = conversations.find(c => c.id === notification.conversationId);
-                        if (conversation) {
-                            startNewConversation(conversation.otherUserId, conversation.otherUserName);
-                            showMessages();
-                        }
-                    } else if (notification.type === 'post' && notification.postId) {
-                        // Navigate to bulletin board
-                        window.location.hash = '#bulletin';
-                        location.reload();
-                    } else if (notification.type === 'comment') {
-                        // Navigate to bulletin board
-                        window.location.hash = '#bulletin';
-                        location.reload();
-                    }
-                    
-                    // Close notifications panel
-                    notificationsPanel.classList.remove('active');
-                    
-                    // Update notification count
-                    checkNotifications();
-                });
-                
-                notificationsContainer.appendChild(notificationElement);
             });
+            
+            notificationsPanel.innerHTML = notificationsHTML;
+            
+            // Re-add event listener to clear button
+            document.getElementById('clear-notifications').addEventListener('click', clearAllNotifications);
+            
+            // Add event listeners to notification items
+            document.querySelectorAll('.notification-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const notificationId = parseInt(this.getAttribute('data-id'));
+                    markNotificationAsRead(notificationId);
+                });
+            });
+        }
+
+        function markNotificationAsRead(notificationId) {
+            if (!currentUser) return;
+            
+            const notifications = JSON.parse(localStorage.getItem(`notifications_${currentUser.id}`)) || [];
+            const notificationIndex = notifications.findIndex(n => n.id === notificationId);
+            
+            if (notificationIndex !== -1) {
+                notifications[notificationIndex].read = true;
+                localStorage.setItem(`notifications_${currentUser.id}`, JSON.stringify(notifications));
+                checkNotifications();
+            }
+        }
+
+        function toggleNotifications() {
+            notificationsPanel.classList.toggle('active');
         }
 
         function clearAllNotifications() {
@@ -2602,62 +2616,6 @@
             notificationsPanel.classList.remove('active');
         }
 
-        function toggleNotifications() {
-            notificationsPanel.classList.toggle('active');
-        }
-
-        function markMessagesAsRead(conversationId) {
-            // Get messages for this conversation
-            const messages = JSON.parse(localStorage.getItem(`messages_${conversationId}`)) || [];
-            
-            // Mark all messages from other user as read
-            messages.forEach(message => {
-                if (message.senderId !== currentUser.id) {
-                    message.read = true;
-                }
-            });
-            
-            // Save updated messages
-            localStorage.setItem(`messages_${conversationId}`, JSON.stringify(messages));
-            
-            // Reload conversations to update unread indicators
-            loadConversations();
-            
-            // Update notification count
-            checkNotifications();
-        }
-
-        function toggleDarkMode() {
-            isDarkMode = !isDarkMode;
-            document.body.classList.toggle('dark-mode');
-            
-            if (isDarkMode) {
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-            } else {
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-            }
-            
-            localStorage.setItem('darkMode', isDarkMode);
-        }
-
-        function updateUserStats() {
-            if (!currentUser) return;
-            
-            // Count user's posts
-            const posts = JSON.parse(localStorage.getItem('posts')) || [];
-            const userPosts = posts.filter(post => post.authorId === currentUser.id);
-            postCount.textContent = userPosts.length;
-            
-            // Count user's messages
-            let totalMessages = 0;
-            const conversations = JSON.parse(localStorage.getItem(`conversations_${currentUser.id}`)) || [];
-            conversations.forEach(conversation => {
-                const messages = JSON.parse(localStorage.getItem(`messages_${conversation.id}`)) || [];
-                totalMessages += messages.filter(msg => msg.senderId === currentUser.id).length;
-            });
-            messageCount.textContent = totalMessages;
-        }
-
         function formatTime(timeString) {
             const date = new Date(timeString);
             return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -2677,4 +2635,4 @@
         });
     </script>
 </body>
-</html>
+</html></html>
