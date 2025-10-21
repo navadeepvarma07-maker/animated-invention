@@ -448,6 +448,7 @@
             border-bottom: 1px solid #eee;
             cursor: pointer;
             transition: background-color 0.2s;
+            position: relative;
         }
         
         .conversation-item:hover {
@@ -479,6 +480,16 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+        
+        .unread-indicator {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 10px;
+            height: 10px;
+            background-color: #ff4757;
+            border-radius: 50%;
         }
         
         .chat-area {
@@ -557,6 +568,79 @@
             justify-content: center;
         }
         
+        /* User Directory Styles */
+        .user-directory {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .user-search {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1rem;
+        }
+        
+        .user-search input {
+            flex: 1;
+        }
+        
+        .users-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .user-card {
+            background: #f9f9ff;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        
+        .user-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .user-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4e54c8, #8a64d0);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin: 0 auto 10px;
+        }
+        
+        .user-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .user-email {
+            font-size: 0.8rem;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .message-user-btn {
+            background-color: #8a64d0;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            width: 100%;
+        }
+        
         /* Modal Styles */
         .modal {
             position: fixed;
@@ -591,6 +675,95 @@
             color: #888;
         }
         
+        /* Notifications Panel - FIXED */
+        .notifications-panel {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 350px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            z-index: 100;
+            max-height: 400px;
+            overflow-y: auto;
+            display: none;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .notifications-panel.active {
+            display: block;
+        }
+        
+        .notification-header {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f9f9ff;
+            border-radius: 8px 8px 0 0;
+        }
+        
+        .notification-header h4 {
+            margin: 0;
+            color: #4e54c8;
+        }
+        
+        .clear-notifications {
+            background: none;
+            border: none;
+            color: #8a64d0;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        
+        .notification-item {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .notification-item:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .notification-item.unread {
+            background-color: #f0f7ff;
+        }
+        
+        .notification-message {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .notification-time {
+            font-size: 0.7rem;
+            color: #666;
+        }
+        
+        .notification-type {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 0.6rem;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+        
+        .type-message {
+            background-color: #e3f2fd;
+            color: #1565c0;
+        }
+        
+        .type-post {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+        
         /* Footer Styles */
         footer {
             background-color: #333;
@@ -618,6 +791,88 @@
         
         .footer-nav a:hover {
             color: white;
+        }
+        
+        /* New Features Styles */
+        .online-indicator {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            width: 12px;
+            height: 12px;
+            background-color: #4CAF50;
+            border: 2px solid white;
+            border-radius: 50%;
+        }
+        
+        .typing-indicator {
+            font-style: italic;
+            color: #888;
+            font-size: 0.8rem;
+            padding: 5px 15px;
+        }
+        
+        .post-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .post-action-btn {
+            background: none;
+            border: none;
+            color: #666;
+            cursor: pointer;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+        
+        .post-action-btn:hover {
+            color: #4e54c8;
+        }
+        
+        .post-action-btn.liked {
+            color: #e74c3c;
+        }
+        
+        .post-stats {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: #888;
+        }
+        
+        .dark-mode {
+            background-color: #1a1a1a;
+            color: #f0f0f0;
+        }
+        
+        .dark-mode .post-card,
+        .dark-mode .dashboard-card,
+        .dark-mode .user-directory,
+        .dark-mode .bulletin-prompt,
+        .dark-mode .modal-content {
+            background-color: #2d2d2d;
+            color: #f0f0f0;
+        }
+        
+        .dark-mode input,
+        .dark-mode textarea,
+        .dark-mode select {
+            background-color: #3d3d3d;
+            border-color: #555;
+            color: #f0f0f0;
+        }
+        
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
         }
         
         /* Responsive Design */
@@ -661,6 +916,15 @@
             .chat-area {
                 height: 60%;
             }
+            
+            .users-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .notifications-panel {
+                width: 300px;
+                right: -50px;
+            }
         }
     </style>
 </head>
@@ -681,9 +945,19 @@
                     <button id="login-btn" class="auth-btn">Login</button>
                     <button id="register-btn" class="auth-btn">Register</button>
                     <div id="user-greeting" class="hidden">
-                        <div class="notification-bell">
+                        <button id="theme-toggle" class="theme-toggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                        <div class="notification-bell" id="notification-bell">
                             <i class="fas fa-bell"></i>
                             <span id="notification-count" class="notification-count hidden">0</span>
+                            <div class="notifications-panel" id="notifications-panel">
+                                <div class="notification-header">
+                                    <h4>Notifications</h4>
+                                    <button class="clear-notifications" id="clear-notifications">Clear All</button>
+                                </div>
+                                <!-- Notifications will be loaded here -->
+                            </div>
                         </div>
                         <span id="username-display"></span>
                         <button id="logout-btn" class="auth-btn">Logout</button>
@@ -699,6 +973,7 @@
                 <li><a href="#bulletin"><i class="fas fa-bullhorn"></i> Community Bulletin</a></li>
                 <li id="dashboard-link" class="hidden"><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> My Dashboard</a></li>
                 <li id="messages-link" class="hidden"><a href="#messages"><i class="fas fa-comments"></i> Messages</a></li>
+                <li id="users-link" class="hidden"><a href="#users"><i class="fas fa-user-friends"></i> Find Users</a></li>
             </ul>
         </div>
     </nav>
@@ -764,6 +1039,8 @@
                         <p><strong>Name:</strong> <span id="profile-name"></span></p>
                         <p><strong>Email:</strong> <span id="profile-email"></span></p>
                         <p><strong>Member since:</strong> <span id="join-date"></span></p>
+                        <p><strong>Posts:</strong> <span id="post-count">0</span></p>
+                        <p><strong>Messages:</strong> <span id="message-count">0</span></p>
                     </div>
                     <button id="edit-profile-btn" class="dashboard-btn">Edit Profile</button>
                 </div>
@@ -797,12 +1074,28 @@
                     <div class="chat-messages" id="chat-messages">
                         <!-- Messages will be loaded here -->
                     </div>
+                    <div id="typing-indicator" class="typing-indicator hidden"></div>
                     <div class="chat-input hidden" id="chat-input">
                         <input type="text" id="message-input" placeholder="Type a message...">
                         <button class="send-btn" id="send-message-btn">
                             <i class="fas fa-paper-plane"></i>
                         </button>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="users" class="section hidden">
+        <div class="container">
+            <h2>Find Community Members</h2>
+            <div class="user-directory">
+                <div class="user-search">
+                    <input type="text" id="user-search-input" placeholder="Search for users by name...">
+                    <button id="user-search-btn" class="cta-button">Search</button>
+                </div>
+                <div class="users-grid" id="users-grid">
+                    <!-- Users will be loaded here -->
                 </div>
             </div>
         </div>
@@ -879,8 +1172,10 @@
         const usernameDisplay = document.getElementById('username-display');
         const dashboardLink = document.getElementById('dashboard-link');
         const messagesLink = document.getElementById('messages-link');
+        const usersLink = document.getElementById('users-link');
         const dashboardSection = document.getElementById('dashboard');
         const messagesSection = document.getElementById('messages');
+        const usersSection = document.getElementById('users');
         const authModal = document.getElementById('auth-modal');
         const closeModalBtn = document.querySelector('.close-modal');
         const switchToRegister = document.getElementById('switch-to-register');
@@ -897,9 +1192,12 @@
         const profileName = document.getElementById('profile-name');
         const profileEmail = document.getElementById('profile-email');
         const joinDate = document.getElementById('join-date');
+        const postCount = document.getElementById('post-count');
+        const messageCount = document.getElementById('message-count');
         const userPostsContainer = document.getElementById('user-posts');
         const savedPostsContainer = document.getElementById('saved-posts');
         const editProfileBtn = document.getElementById('edit-profile-btn');
+        const themeToggle = document.getElementById('theme-toggle');
         
         // Messaging elements
         const conversationsList = document.getElementById('conversations-list');
@@ -908,6 +1206,18 @@
         const chatInput = document.getElementById('chat-input');
         const messageInput = document.getElementById('message-input');
         const sendMessageBtn = document.getElementById('send-message-btn');
+        const typingIndicator = document.getElementById('typing-indicator');
+        
+        // User directory elements
+        const userSearchInput = document.getElementById('user-search-input');
+        const userSearchBtn = document.getElementById('user-search-btn');
+        const usersGrid = document.getElementById('users-grid');
+        
+        // Notification elements
+        const notificationBell = document.getElementById('notification-bell');
+        const notificationCount = document.getElementById('notification-count');
+        const notificationsPanel = document.getElementById('notifications-panel');
+        const clearNotificationsBtn = document.getElementById('clear-notifications');
         
         // Media upload elements
         const mediaDropArea = document.getElementById('media-drop-area');
@@ -918,6 +1228,8 @@
         let currentUser = null;
         let mediaFiles = [];
         let currentConversationId = null;
+        let isDarkMode = localStorage.getItem('darkMode') === 'true';
+        let typingTimeout = null;
 
         // Event Listeners
         document.addEventListener('DOMContentLoaded', function() {
@@ -926,6 +1238,12 @@
             if (savedUser) {
                 currentUser = JSON.parse(savedUser);
                 updateUIForLoggedInUser();
+            }
+            
+            // Apply dark mode if enabled
+            if (isDarkMode) {
+                document.body.classList.add('dark-mode');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
             }
             
             // Load posts
@@ -955,6 +1273,7 @@
             // Navigation
             dashboardLink.addEventListener('click', showDashboard);
             messagesLink.addEventListener('click', showMessages);
+            usersLink.addEventListener('click', showUsers);
             
             // Media upload
             mediaDropArea.addEventListener('click', () => mediaUpload.click());
@@ -978,10 +1297,31 @@
                 }
             });
             
+            // Typing indicator
+            messageInput.addEventListener('input', handleTyping);
+            
+            // User directory
+            userSearchBtn.addEventListener('click', searchUsers);
+            userSearchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    searchUsers();
+                }
+            });
+            
+            // Notifications
+            notificationBell.addEventListener('click', toggleNotifications);
+            clearNotificationsBtn.addEventListener('click', clearAllNotifications);
+            
+            // Theme toggle
+            themeToggle.addEventListener('click', toggleDarkMode);
+            
             // Close modal when clicking outside
             window.addEventListener('click', function(event) {
                 if (event.target === authModal) {
                     closeAuthModal();
+                }
+                if (!notificationBell.contains(event.target)) {
+                    notificationsPanel.classList.remove('active');
                 }
             });
         }
@@ -1075,7 +1415,8 @@
                 email,
                 password,
                 address,
-                joinDate: new Date().toLocaleDateString()
+                joinDate: new Date().toLocaleDateString(),
+                lastSeen: new Date().toISOString()
             };
             
             // Save user
@@ -1091,6 +1432,16 @@
         }
 
         function logout() {
+            // Update last seen
+            if (currentUser) {
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+                const userIndex = users.findIndex(u => u.id === currentUser.id);
+                if (userIndex !== -1) {
+                    users[userIndex].lastSeen = new Date().toISOString();
+                    localStorage.setItem('users', JSON.stringify(users));
+                }
+            }
+            
             currentUser = null;
             localStorage.removeItem('currentUser');
             updateUIForLoggedOutUser();
@@ -1108,9 +1459,10 @@
             postFormContainer.classList.remove('hidden');
             loginPrompt.classList.add('hidden');
             
-            // Show dashboard and messages links
+            // Show dashboard, messages, and users links
             dashboardLink.classList.remove('hidden');
             messagesLink.classList.remove('hidden');
+            usersLink.classList.remove('hidden');
             
             // Update dashboard if visible
             if (window.location.hash === '#dashboard') {
@@ -1122,6 +1474,15 @@
             
             // Load conversations
             loadConversations();
+            
+            // Load users directory
+            loadUsers();
+            
+            // Check for notifications
+            checkNotifications();
+            
+            // Update user stats
+            updateUserStats();
         }
 
         function updateUIForLoggedOutUser() {
@@ -1134,13 +1495,15 @@
             postFormContainer.classList.add('hidden');
             loginPrompt.classList.remove('hidden');
             
-            // Hide dashboard and messages links
+            // Hide dashboard, messages, and users links
             dashboardLink.classList.add('hidden');
             messagesLink.classList.add('hidden');
+            usersLink.classList.add('hidden');
             
-            // Hide dashboard and messages if visible
+            // Hide dashboard, messages, and users if visible
             dashboardSection.classList.add('hidden');
             messagesSection.classList.add('hidden');
+            usersSection.classList.add('hidden');
         }
 
         function handleMediaUpload(e) {
@@ -1246,6 +1609,11 @@
             // Check if current user is the author
             const isCurrentUserAuthor = currentUser && post.authorId === currentUser.id;
             
+            // Get likes and comments
+            const likes = post.likes || [];
+            const comments = post.comments || [];
+            const isLiked = likes.includes(currentUser?.id);
+            
             postDiv.innerHTML = `
                 <h3 class="post-title">${post.title}</h3>
                 ${mediaHTML}
@@ -1255,8 +1623,39 @@
                     <span class="post-date">${post.date}</span>
                 </div>
                 <span class="post-category ${categoryClass}">${post.category}</span>
+                <div class="post-stats">
+                    <span><i class="fas fa-heart"></i> ${likes.length} likes</span>
+                    <span><i class="fas fa-comment"></i> ${comments.length} comments</span>
+                </div>
+                <div class="post-actions">
+                    <button class="post-action-btn ${isLiked ? 'liked' : ''}" data-post-id="${post.id}" data-action="like">
+                        <i class="fas fa-heart"></i> ${isLiked ? 'Liked' : 'Like'}
+                    </button>
+                    <button class="post-action-btn" data-post-id="${post.id}" data-action="comment">
+                        <i class="fas fa-comment"></i> Comment
+                    </button>
+                    <button class="post-action-btn" data-post-id="${post.id}" data-action="share">
+                        <i class="fas fa-share"></i> Share
+                    </button>
+                </div>
                 ${!isCurrentUserAuthor && currentUser ? `<button class="message-author-btn" data-author-id="${post.authorId}" data-author-name="${post.author}">Message ${post.author}</button>` : ''}
             `;
+            
+            // Add event listeners to action buttons
+            const likeBtn = postDiv.querySelector('[data-action="like"]');
+            likeBtn.addEventListener('click', function() {
+                handlePostAction(post.id, 'like');
+            });
+            
+            const commentBtn = postDiv.querySelector('[data-action="comment"]');
+            commentBtn.addEventListener('click', function() {
+                handlePostAction(post.id, 'comment');
+            });
+            
+            const shareBtn = postDiv.querySelector('[data-action="share"]');
+            shareBtn.addEventListener('click', function() {
+                handlePostAction(post.id, 'share');
+            });
             
             // Add event listener to message button
             if (!isCurrentUserAuthor && currentUser) {
@@ -1269,6 +1668,75 @@
             }
             
             return postDiv;
+        }
+
+        function handlePostAction(postId, action) {
+            if (!currentUser) {
+                alert('Please log in to perform this action');
+                return;
+            }
+            
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            const postIndex = posts.findIndex(p => p.id == postId);
+            
+            if (postIndex === -1) return;
+            
+            if (action === 'like') {
+                // Initialize likes array if it doesn't exist
+                if (!posts[postIndex].likes) {
+                    posts[postIndex].likes = [];
+                }
+                
+                // Check if user already liked the post
+                const likeIndex = posts[postIndex].likes.indexOf(currentUser.id);
+                
+                if (likeIndex === -1) {
+                    // Add like
+                    posts[postIndex].likes.push(currentUser.id);
+                } else {
+                    // Remove like
+                    posts[postIndex].likes.splice(likeIndex, 1);
+                }
+                
+                // Save updated posts
+                localStorage.setItem('posts', JSON.stringify(posts));
+                
+                // Reload posts
+                loadPosts();
+                
+                // Update user stats
+                updateUserStats();
+            } else if (action === 'comment') {
+                const comment = prompt('Enter your comment:');
+                if (comment && comment.trim()) {
+                    // Initialize comments array if it doesn't exist
+                    if (!posts[postIndex].comments) {
+                        posts[postIndex].comments = [];
+                    }
+                    
+                    // Add comment
+                    posts[postIndex].comments.push({
+                        userId: currentUser.id,
+                        userName: currentUser.name,
+                        content: comment.trim(),
+                        time: new Date().toISOString()
+                    });
+                    
+                    // Save updated posts
+                    localStorage.setItem('posts', JSON.stringify(posts));
+                    
+                    // Reload posts
+                    loadPosts();
+                    
+                    // Create notification for post author
+                    if (posts[postIndex].authorId !== currentUser.id) {
+                        createCommentNotification(posts[postIndex].authorId, currentUser.name, posts[postIndex].title);
+                    }
+                }
+            } else if (action === 'share') {
+                // In a real app, this would share to social media
+                alert('Post shared! (This would share to social media in a real application)');
+            }
         }
 
         function handlePostSubmit(e) {
@@ -1292,7 +1760,9 @@
                 author: currentUser.name,
                 authorId: currentUser.id,
                 date: new Date().toLocaleDateString(),
-                media: []
+                media: [],
+                likes: [],
+                comments: []
             };
             
             // Process media files
@@ -1313,6 +1783,9 @@
             posts.unshift(newPost); // Add to beginning of array
             localStorage.setItem('posts', JSON.stringify(posts));
             
+            // Create notification for all users
+            createPostNotification(newPost);
+            
             // Reload posts
             loadPosts();
             
@@ -1324,6 +1797,9 @@
             // Add to user's posts
             loadUserPosts();
             
+            // Update user stats
+            updateUserStats();
+            
             alert('Your post has been published!');
         }
 
@@ -1331,8 +1807,9 @@
             // Show dashboard section
             dashboardSection.classList.remove('hidden');
             
-            // Hide messages section
+            // Hide other sections
             messagesSection.classList.add('hidden');
+            usersSection.classList.add('hidden');
             
             // Scroll to dashboard
             dashboardSection.scrollIntoView({ behavior: 'smooth' });
@@ -1346,20 +1823,39 @@
             
             // Load user's posts
             loadUserPosts();
+            
+            // Update user stats
+            updateUserStats();
         }
 
         function showMessages() {
             // Show messages section
             messagesSection.classList.remove('hidden');
             
-            // Hide dashboard section
+            // Hide other sections
             dashboardSection.classList.add('hidden');
+            usersSection.classList.add('hidden');
             
             // Scroll to messages
             messagesSection.scrollIntoView({ behavior: 'smooth' });
             
             // Load conversations
             loadConversations();
+        }
+
+        function showUsers() {
+            // Show users section
+            usersSection.classList.remove('hidden');
+            
+            // Hide other sections
+            dashboardSection.classList.add('hidden');
+            messagesSection.classList.add('hidden');
+            
+            // Scroll to users
+            usersSection.scrollIntoView({ behavior: 'smooth' });
+            
+            // Load users
+            loadUsers();
         }
 
         function loadUserPosts() {
@@ -1396,7 +1892,7 @@
             const conversations = JSON.parse(localStorage.getItem(`conversations_${currentUser.id}`)) || [];
             
             if (conversations.length === 0) {
-                conversationsList.innerHTML = '<p>No conversations yet. Message someone from their post to start a conversation!</p>';
+                conversationsList.innerHTML = '<p>No conversations yet. Message someone to start a conversation!</p>';
                 return;
             }
             
@@ -1406,12 +1902,19 @@
                 conversationElement.className = 'conversation-item';
                 conversationElement.setAttribute('data-id', conversation.id);
                 
+                // Check if conversation has unread messages
+                const messages = JSON.parse(localStorage.getItem(`messages_${conversation.id}`)) || [];
+                const unreadMessages = messages.filter(msg => 
+                    msg.senderId !== currentUser.id && !msg.read
+                );
+                
                 conversationElement.innerHTML = `
                     <div class="conversation-header">
                         <span class="conversation-name">${conversation.otherUserName}</span>
                         <span class="conversation-time">${formatTime(conversation.lastMessageTime)}</span>
                     </div>
                     <div class="conversation-preview">${conversation.lastMessage}</div>
+                    ${unreadMessages.length > 0 ? '<div class="unread-indicator"></div>' : ''}
                 `;
                 
                 // Add click event to load conversation
@@ -1423,16 +1926,124 @@
                     });
                     // Add active class to clicked conversation
                     conversationElement.classList.add('active');
+                    
+                    // Mark messages as read
+                    markMessagesAsRead(conversation.id);
                 });
                 
                 conversationsList.appendChild(conversationElement);
             });
         }
 
-        function startNewConversation(authorId, authorName) {
+        function loadUsers() {
+            if (!currentUser) return;
+            
+            // Clear users grid
+            usersGrid.innerHTML = '';
+            
+            // Get users from localStorage
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            
+            // Filter out current user
+            const otherUsers = users.filter(user => user.id !== currentUser.id);
+            
+            if (otherUsers.length === 0) {
+                usersGrid.innerHTML = '<p>No other users found.</p>';
+                return;
+            }
+            
+            // Display each user
+            otherUsers.forEach(user => {
+                const userElement = document.createElement('div');
+                userElement.className = 'user-card';
+                
+                // Check if user is online (last seen within 5 minutes)
+                const lastSeen = new Date(user.lastSeen || user.joinDate);
+                const isOnline = (Date.now() - lastSeen.getTime()) < 5 * 60 * 1000;
+                
+                userElement.innerHTML = `
+                    <div class="user-avatar">
+                        ${user.name.charAt(0).toUpperCase()}
+                        ${isOnline ? '<div class="online-indicator"></div>' : ''}
+                    </div>
+                    <div class="user-name">${user.name}</div>
+                    <div class="user-email">${user.email}</div>
+                    <button class="message-user-btn" data-user-id="${user.id}" data-user-name="${user.name}">Message</button>
+                `;
+                
+                // Add event listener to message button
+                const messageBtn = userElement.querySelector('.message-user-btn');
+                messageBtn.addEventListener('click', function() {
+                    const userId = this.getAttribute('data-user-id');
+                    const userName = this.getAttribute('data-user-name');
+                    startNewConversation(userId, userName);
+                });
+                
+                usersGrid.appendChild(userElement);
+            });
+        }
+
+        function searchUsers() {
+            const searchTerm = userSearchInput.value.toLowerCase().trim();
+            
+            if (!searchTerm) {
+                loadUsers();
+                return;
+            }
+            
+            // Get users from localStorage
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            
+            // Filter users based on search term
+            const filteredUsers = users.filter(user => 
+                user.id !== currentUser.id && 
+                (user.name.toLowerCase().includes(searchTerm) || 
+                 user.email.toLowerCase().includes(searchTerm))
+            );
+            
+            // Clear users grid
+            usersGrid.innerHTML = '';
+            
+            if (filteredUsers.length === 0) {
+                usersGrid.innerHTML = '<p>No users found matching your search.</p>';
+                return;
+            }
+            
+            // Display filtered users
+            filteredUsers.forEach(user => {
+                const userElement = document.createElement('div');
+                userElement.className = 'user-card';
+                
+                // Check if user is online (last seen within 5 minutes)
+                const lastSeen = new Date(user.lastSeen || user.joinDate);
+                const isOnline = (Date.now() - lastSeen.getTime()) < 5 * 60 * 1000;
+                
+                userElement.innerHTML = `
+                    <div class="user-avatar">
+                        ${user.name.charAt(0).toUpperCase()}
+                        ${isOnline ? '<div class="online-indicator"></div>' : ''}
+                    </div>
+                    <div class="user-name">${user.name}</div>
+                    <div class="user-email">${user.email}</div>
+                    <button class="message-user-btn" data-user-id="${user.id}" data-user-name="${user.name}">Message</button>
+                `;
+                
+                // Add event listener to message button
+                const messageBtn = userElement.querySelector('.message-user-btn');
+                messageBtn.addEventListener('click', function() {
+                    const userId = this.getAttribute('data-user-id');
+                    const userName = this.getAttribute('data-user-name');
+                    startNewConversation(userId, userName);
+                });
+                
+                usersGrid.appendChild(userElement);
+            });
+        }
+
+        function startNewConversation(userId, userName) {
             // Check if conversation already exists
             const conversations = JSON.parse(localStorage.getItem(`conversations_${currentUser.id}`)) || [];
-            const existingConversation = conversations.find(c => c.otherUserId == authorId);
+            const existingConversation = conversations.find(c => c.otherUserId == userId);
             
             if (existingConversation) {
                 // Load existing conversation
@@ -1444,8 +2055,8 @@
             // Create new conversation
             const newConversation = {
                 id: Date.now(),
-                otherUserId: authorId,
-                otherUserName: authorName,
+                otherUserId: userId,
+                otherUserName: userName,
                 lastMessage: "Start a conversation",
                 lastMessageTime: new Date().toISOString()
             };
@@ -1455,7 +2066,7 @@
             localStorage.setItem(`conversations_${currentUser.id}`, JSON.stringify(conversations));
             
             // Also create conversation for the other user
-            const otherUserConversations = JSON.parse(localStorage.getItem(`conversations_${authorId}`)) || [];
+            const otherUserConversations = JSON.parse(localStorage.getItem(`conversations_${userId}`)) || [];
             otherUserConversations.push({
                 id: newConversation.id,
                 otherUserId: currentUser.id,
@@ -1463,7 +2074,7 @@
                 lastMessage: "Start a conversation",
                 lastMessageTime: new Date().toISOString()
             });
-            localStorage.setItem(`conversations_${authorId}`, JSON.stringify(otherUserConversations));
+            localStorage.setItem(`conversations_${userId}`, JSON.stringify(otherUserConversations));
             
             // Initialize empty messages for this conversation
             localStorage.setItem(`messages_${newConversation.id}`, JSON.stringify([]));
@@ -1521,7 +2132,8 @@
                 senderId: currentUser.id,
                 senderName: currentUser.name,
                 content: messageContent,
-                time: new Date().toISOString()
+                time: new Date().toISOString(),
+                read: false
             };
             
             // Get existing messages
@@ -1552,11 +2164,273 @@
                 localStorage.setItem(`conversations_${otherUserId}`, JSON.stringify(otherUserConversations));
             }
             
+            // Create notification for the other user
+            createMessageNotification(otherUserId, currentUser.name, messageContent);
+            
             // Reload conversation
             loadConversation(currentConversationId);
             
             // Clear input
             messageInput.value = '';
+            
+            // Update user stats
+            updateUserStats();
+        }
+
+        function handleTyping() {
+            // Show typing indicator
+            if (currentConversationId) {
+                typingIndicator.textContent = "You are typing...";
+                typingIndicator.classList.remove('hidden');
+                
+                // Clear previous timeout
+                if (typingTimeout) {
+                    clearTimeout(typingTimeout);
+                }
+                
+                // Hide typing indicator after 1 second of inactivity
+                typingTimeout = setTimeout(() => {
+                    typingIndicator.classList.add('hidden');
+                }, 1000);
+            }
+        }
+
+        function createMessageNotification(userId, senderName, message) {
+            // Get user's notifications
+            const notifications = JSON.parse(localStorage.getItem(`notifications_${userId}`)) || [];
+            
+            // Create new notification
+            const newNotification = {
+                id: Date.now(),
+                type: 'message',
+                message: `${senderName} sent you a message: "${message}"`,
+                time: new Date().toISOString(),
+                read: false,
+                conversationId: currentConversationId
+            };
+            
+            // Add notification
+            notifications.unshift(newNotification);
+            localStorage.setItem(`notifications_${userId}`, JSON.stringify(notifications));
+            
+            // Update notification count for the user if they're logged in
+            if (userId === currentUser.id) {
+                checkNotifications();
+            }
+        }
+
+        function createPostNotification(post) {
+            // Get all users
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            
+            // Create notification for each user (except the post author)
+            users.forEach(user => {
+                if (user.id !== post.authorId) {
+                    const notifications = JSON.parse(localStorage.getItem(`notifications_${user.id}`)) || [];
+                    
+                    const newNotification = {
+                        id: Date.now(),
+                        type: 'post',
+                        message: `${post.author} posted: "${post.title}"`,
+                        time: new Date().toISOString(),
+                        read: false,
+                        postId: post.id
+                    };
+                    
+                    notifications.unshift(newNotification);
+                    localStorage.setItem(`notifications_${user.id}`, JSON.stringify(notifications));
+                    
+                    // Update notification count for the user if they're logged in
+                    if (user.id === currentUser.id) {
+                        checkNotifications();
+                    }
+                }
+            });
+        }
+
+        function createCommentNotification(userId, commenterName, postTitle) {
+            // Get user's notifications
+            const notifications = JSON.parse(localStorage.getItem(`notifications_${userId}`)) || [];
+            
+            // Create new notification
+            const newNotification = {
+                id: Date.now(),
+                type: 'comment',
+                message: `${commenterName} commented on your post: "${postTitle}"`,
+                time: new Date().toISOString(),
+                read: false,
+                postId: null // We don't have the post ID here
+            };
+            
+            // Add notification
+            notifications.unshift(newNotification);
+            localStorage.setItem(`notifications_${userId}`, JSON.stringify(notifications));
+            
+            // Update notification count for the user if they're logged in
+            if (userId === currentUser.id) {
+                checkNotifications();
+            }
+        }
+
+        function checkNotifications() {
+            if (!currentUser) return;
+            
+            // Get user's notifications
+            const notifications = JSON.parse(localStorage.getItem(`notifications_${currentUser.id}`)) || [];
+            
+            // Count unread notifications
+            const unreadCount = notifications.filter(notification => !notification.read).length;
+            
+            // Update notification count
+            if (unreadCount > 0) {
+                notificationCount.textContent = unreadCount;
+                notificationCount.classList.remove('hidden');
+            } else {
+                notificationCount.classList.add('hidden');
+            }
+            
+            // Update notifications panel
+            updateNotificationsPanel(notifications);
+        }
+
+        function updateNotificationsPanel(notifications) {
+            // Clear notifications panel
+            const notificationsContainer = notificationsPanel;
+            // Skip the header when clearing
+            const notificationItems = notificationsContainer.querySelectorAll('.notification-item');
+            notificationItems.forEach(item => item.remove());
+            
+            if (notifications.length === 0) {
+                notificationsContainer.innerHTML += '<div class="notification-item"><div class="notification-message">No notifications</div></div>';
+                return;
+            }
+            
+            // Display recent notifications (max 10)
+            const recentNotifications = notifications.slice(0, 10);
+            
+            recentNotifications.forEach(notification => {
+                const notificationElement = document.createElement('div');
+                notificationElement.className = `notification-item ${notification.read ? '' : 'unread'}`;
+                
+                notificationElement.innerHTML = `
+                    <div class="notification-message">
+                        <span class="notification-type type-${notification.type}">${notification.type}</span>
+                        ${notification.message}
+                    </div>
+                    <div class="notification-time">${formatTime(notification.time)}</div>
+                `;
+                
+                // Add click event
+                notificationElement.addEventListener('click', () => {
+                    // Mark as read
+                    notification.read = true;
+                    localStorage.setItem(`notifications_${currentUser.id}`, JSON.stringify(notifications));
+                    
+                    // Handle notification click based on type
+                    if (notification.type === 'message' && notification.conversationId) {
+                        // Navigate to messages and open the conversation
+                        const conversations = JSON.parse(localStorage.getItem(`conversations_${currentUser.id}`)) || [];
+                        const conversation = conversations.find(c => c.id === notification.conversationId);
+                        if (conversation) {
+                            startNewConversation(conversation.otherUserId, conversation.otherUserName);
+                            showMessages();
+                        }
+                    } else if (notification.type === 'post' && notification.postId) {
+                        // Navigate to bulletin board
+                        window.location.hash = '#bulletin';
+                        location.reload();
+                    } else if (notification.type === 'comment') {
+                        // Navigate to bulletin board
+                        window.location.hash = '#bulletin';
+                        location.reload();
+                    }
+                    
+                    // Close notifications panel
+                    notificationsPanel.classList.remove('active');
+                    
+                    // Update notification count
+                    checkNotifications();
+                });
+                
+                notificationsContainer.appendChild(notificationElement);
+            });
+        }
+
+        function clearAllNotifications() {
+            if (!currentUser) return;
+            
+            // Get user's notifications
+            const notifications = JSON.parse(localStorage.getItem(`notifications_${currentUser.id}`)) || [];
+            
+            // Mark all as read
+            notifications.forEach(notification => {
+                notification.read = true;
+            });
+            
+            // Save updated notifications
+            localStorage.setItem(`notifications_${currentUser.id}`, JSON.stringify(notifications));
+            
+            // Update UI
+            checkNotifications();
+            
+            // Close notifications panel
+            notificationsPanel.classList.remove('active');
+        }
+
+        function toggleNotifications() {
+            notificationsPanel.classList.toggle('active');
+        }
+
+        function markMessagesAsRead(conversationId) {
+            // Get messages for this conversation
+            const messages = JSON.parse(localStorage.getItem(`messages_${conversationId}`)) || [];
+            
+            // Mark all messages from other user as read
+            messages.forEach(message => {
+                if (message.senderId !== currentUser.id) {
+                    message.read = true;
+                }
+            });
+            
+            // Save updated messages
+            localStorage.setItem(`messages_${conversationId}`, JSON.stringify(messages));
+            
+            // Reload conversations to update unread indicators
+            loadConversations();
+            
+            // Update notification count
+            checkNotifications();
+        }
+
+        function toggleDarkMode() {
+            isDarkMode = !isDarkMode;
+            document.body.classList.toggle('dark-mode');
+            
+            if (isDarkMode) {
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+            
+            localStorage.setItem('darkMode', isDarkMode);
+        }
+
+        function updateUserStats() {
+            if (!currentUser) return;
+            
+            // Count user's posts
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            const userPosts = posts.filter(post => post.authorId === currentUser.id);
+            postCount.textContent = userPosts.length;
+            
+            // Count user's messages
+            let totalMessages = 0;
+            const conversations = JSON.parse(localStorage.getItem(`conversations_${currentUser.id}`)) || [];
+            conversations.forEach(conversation => {
+                const messages = JSON.parse(localStorage.getItem(`messages_${conversation.id}`)) || [];
+                totalMessages += messages.filter(msg => msg.senderId === currentUser.id).length;
+            });
+            messageCount.textContent = totalMessages;
         }
 
         function formatTime(timeString) {
