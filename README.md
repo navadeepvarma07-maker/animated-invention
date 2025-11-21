@@ -3,16 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arnama Connect</title>
+    <title>Arnama Connect - Community Bulletin Board</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
+        /* Existing CSS remains the same */
         body {
             background-color: #f5f7fa;
             color: #333;
@@ -436,6 +430,10 @@
             color: #ffa502;
         }
         
+        .action-btn.delete-btn {
+            color: #ff4757;
+        }
+        
         .comments-section {
             margin-top: 15px;
             padding-top: 15px;
@@ -446,6 +444,7 @@
             margin-bottom: 10px;
             padding-bottom: 10px;
             border-bottom: 1px solid #f5f5f5;
+            position: relative;
         }
         
         .comment-author {
@@ -456,6 +455,20 @@
         .comment-content {
             margin-top: 5px;
             font-size: 0.9rem;
+        }
+        
+        .comment-actions {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        
+        .delete-comment-btn {
+            background: none;
+            border: none;
+            color: #ff4757;
+            cursor: pointer;
+            font-size: 0.8rem;
         }
         
         .comment-input {
@@ -828,6 +841,54 @@
             color: #888;
         }
         
+        /* Confirmation Modal */
+        .confirmation-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .confirmation-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        .confirmation-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .confirm-btn {
+            background-color: #ff4757;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .cancel-btn {
+            background-color: #ddd;
+            color: #333;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
         /* Notifications Panel */
         .notifications-panel {
             position: absolute;
@@ -956,7 +1017,60 @@
             color: white;
         }
         
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .mobile-nav {
+            display: none;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        .mobile-nav.active {
+            display: block;
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .mobile-nav li {
+            border-bottom: 1px solid #eee;
+        }
+        
+        .mobile-nav a {
+            display: block;
+            padding: 15px;
+            text-decoration: none;
+            color: #4e54c8;
+            font-weight: 500;
+        }
+        
         /* Responsive Design */
+        @media (max-width: 1024px) {
+            .posts-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .users-grid {
+                grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            }
+        }
+        
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -964,9 +1078,15 @@
                 gap: 15px;
             }
             
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 20px;
+                right: 15px;
+            }
+            
             nav ul {
-                flex-direction: column;
-                gap: 10px;
+                display: none;
             }
             
             .posts-grid {
@@ -1010,6 +1130,50 @@
             .share-options {
                 grid-template-columns: repeat(2, 1fr);
             }
+            
+            .post-actions {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .action-btn {
+                font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .post-card {
+                padding: 1rem;
+            }
+            
+            .users-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .user-search {
+                flex-direction: column;
+            }
+            
+            .notifications-panel {
+                width: 280px;
+                right: -70px;
+            }
+            
+            .share-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .message {
+                max-width: 85%;
+            }
         }
     </style>
 </head>
@@ -1022,30 +1186,41 @@
                         <i class="fas fa-users"></i>
                     </div>
                     <div class="logo-text">
-                        <h1>ARNAMA <span class="highlight">Connect</span></h1>
-                        <p class="tagline">Your local community hub for events, news, and resources</p>
+                        <h1>Arnama <span class="highlight">Connect</span></h1>
+                        <p class="tagline">Your community hub for sharing and connecting</p>
                     </div>
                 </div>
                 <div class="auth-buttons">
                     <button id="login-btn" class="auth-btn">Login</button>
                     <button id="register-btn" class="auth-btn">Register</button>
                     <div id="user-greeting" class="hidden">
+                        <span>Hello, <span id="username-display"></span></span>
                         <div class="notification-bell" id="notification-bell">
                             <i class="fas fa-bell"></i>
-                            <span id="notification-count" class="notification-count hidden">0</span>
-                            <div class="notifications-panel" id="notifications-panel">
-                                <div class="notification-header">
-                                    <h4>Notifications</h4>
-                                    <button class="clear-notifications" id="clear-notifications">Clear All</button>
-                                </div>
-                                <!-- Notifications will be loaded here -->
-                            </div>
+                            <span class="notification-count hidden" id="notification-count">0</span>
                         </div>
-                        <span id="username-display"></span>
                         <button id="logout-btn" class="auth-btn">Logout</button>
                     </div>
                 </div>
+                <button class="mobile-menu-btn" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <ul>
+                <li><a href="#bulletin"><i class="fas fa-bullhorn"></i> Community Bulletin</a></li>
+                <li id="dashboard-link-mobile" class="hidden"><a href="#dashboard"><i class="fas fa-tachometer-alt"></i> My Dashboard</a></li>
+                <li id="messages-link-mobile" class="hidden"><a href="#messages"><i class="fas fa-comments"></i> Messages</a></li>
+                <li id="users-link-mobile" class="hidden"><a href="#users"><i class="fas fa-user-friends"></i> Find Users</a></li>
+            </ul>
+        </div>
+        <div class="notifications-panel" id="notifications-panel">
+            <div class="notification-header">
+                <h4>Notifications</h4>
+                <button class="clear-notifications" id="clear-notifications">Clear All</button>
+            </div>
+            <!-- Notifications will be loaded here dynamically -->
         </div>
     </header>
 
@@ -1264,6 +1439,18 @@
         </div>
     </div>
 
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="confirmation-modal hidden">
+        <div class="confirmation-content">
+            <h3 id="confirmation-title">Confirm Action</h3>
+            <p id="confirmation-message">Are you sure you want to perform this action?</p>
+            <div class="confirmation-buttons">
+                <button id="confirm-action" class="confirm-btn">Yes, Delete</button>
+                <button id="cancel-action" class="cancel-btn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1289,6 +1476,9 @@
         const dashboardLink = document.getElementById('dashboard-link');
         const messagesLink = document.getElementById('messages-link');
         const usersLink = document.getElementById('users-link');
+        const dashboardLinkMobile = document.getElementById('dashboard-link-mobile');
+        const messagesLinkMobile = document.getElementById('messages-link-mobile');
+        const usersLinkMobile = document.getElementById('users-link-mobile');
         const dashboardSection = document.getElementById('dashboard');
         const messagesSection = document.getElementById('messages');
         const usersSection = document.getElementById('users');
@@ -1311,6 +1501,8 @@
         const userPostsContainer = document.getElementById('user-posts');
         const savedPostsContainer = document.getElementById('saved-posts');
         const editProfileBtn = document.getElementById('edit-profile-btn');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileNav = document.getElementById('mobile-nav');
         
         // Messaging elements
         const conversationsList = document.getElementById('conversations-list');
@@ -1340,12 +1532,20 @@
         const shareModal = document.getElementById('share-modal');
         const closeShareModal = document.getElementById('close-share-modal');
         const shareOptions = document.querySelectorAll('.share-option');
+        
+        // Confirmation modal elements
+        const confirmationModal = document.getElementById('confirmation-modal');
+        const confirmationTitle = document.getElementById('confirmation-title');
+        const confirmationMessage = document.getElementById('confirmation-message');
+        const confirmActionBtn = document.getElementById('confirm-action');
+        const cancelActionBtn = document.getElementById('cancel-action');
 
         // Current user state
         let currentUser = null;
         let mediaFiles = [];
         let currentConversationId = null;
         let currentPostToShare = null;
+        let pendingDeleteAction = null;
 
         // Event Listeners
         document.addEventListener('DOMContentLoaded', function() {
@@ -1387,6 +1587,12 @@
             dashboardLink.addEventListener('click', showDashboard);
             messagesLink.addEventListener('click', showMessages);
             usersLink.addEventListener('click', showUsers);
+            dashboardLinkMobile.addEventListener('click', showDashboard);
+            messagesLinkMobile.addEventListener('click', showMessages);
+            usersLinkMobile.addEventListener('click', showUsers);
+            
+            // Mobile menu
+            mobileMenuBtn.addEventListener('click', toggleMobileMenu);
             
             // Media upload
             mediaDropArea.addEventListener('click', () => mediaUpload.click());
@@ -1428,6 +1634,10 @@
                 option.addEventListener('click', handleShare);
             });
             
+            // Confirmation modal
+            confirmActionBtn.addEventListener('click', executePendingDelete);
+            cancelActionBtn.addEventListener('click', () => confirmationModal.classList.add('hidden'));
+            
             // Close modals when clicking outside
             window.addEventListener('click', function(event) {
                 if (event.target === authModal) {
@@ -1436,8 +1646,14 @@
                 if (event.target === shareModal) {
                     shareModal.classList.add('hidden');
                 }
+                if (event.target === confirmationModal) {
+                    confirmationModal.classList.add('hidden');
+                }
                 if (!notificationBell.contains(event.target)) {
                     notificationsPanel.classList.remove('active');
+                }
+                if (!mobileMenuBtn.contains(event.target) && !mobileNav.contains(event.target)) {
+                    mobileNav.classList.remove('active');
                 }
             });
         }
@@ -1608,6 +1824,9 @@
             dashboardLink.classList.remove('hidden');
             messagesLink.classList.remove('hidden');
             usersLink.classList.remove('hidden');
+            dashboardLinkMobile.classList.remove('hidden');
+            messagesLinkMobile.classList.remove('hidden');
+            usersLinkMobile.classList.remove('hidden');
             
             // Update dashboard if visible
             if (window.location.hash === '#dashboard') {
@@ -1641,11 +1860,21 @@
             dashboardLink.classList.add('hidden');
             messagesLink.classList.add('hidden');
             usersLink.classList.add('hidden');
+            dashboardLinkMobile.classList.add('hidden');
+            messagesLinkMobile.classList.add('hidden');
+            usersLinkMobile.classList.add('hidden');
             
             // Hide dashboard and messages if visible
             dashboardSection.classList.add('hidden');
             messagesSection.classList.add('hidden');
             usersSection.classList.add('hidden');
+            
+            // Hide mobile menu
+            mobileNav.classList.remove('active');
+        }
+
+        function toggleMobileMenu() {
+            mobileNav.classList.toggle('active');
         }
 
         function handleMediaUpload(e) {
@@ -1786,6 +2015,12 @@
                         <i class="fas fa-share-alt"></i>
                         <span>Share</span>
                     </button>
+                    ${isCurrentUserAuthor ? `
+                        <button class="action-btn delete-btn" data-post-id="${post.id}">
+                            <i class="fas fa-trash"></i>
+                            <span>Delete</span>
+                        </button>
+                    ` : ''}
                 </div>
                 
                 <!-- Comments Section -->
@@ -1795,6 +2030,13 @@
                             <div class="comment">
                                 <div class="comment-author">${comment.author}</div>
                                 <div class="comment-content">${comment.content}</div>
+                                ${currentUser && (currentUser.id === comment.authorId || currentUser.id === post.authorId) ? `
+                                    <div class="comment-actions">
+                                        <button class="delete-comment-btn" data-post-id="${post.id}" data-comment-id="${comment.id}">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                ` : ''}
                             </div>
                         `).join('') : 
                         '<p>No comments yet.</p>'
@@ -1843,6 +2085,15 @@
                     showShareModal(postId);
                 });
                 
+                // Delete button (if present)
+                const deleteBtn = postDiv.querySelector('.delete-btn');
+                if (deleteBtn) {
+                    deleteBtn.addEventListener('click', function() {
+                        const postId = parseInt(this.getAttribute('data-post-id'));
+                        showDeleteConfirmation('post', postId);
+                    });
+                }
+                
                 // Comment input
                 const commentInput = postDiv.querySelector(`#comment-input-${post.id}`);
                 if (commentInput) {
@@ -1867,6 +2118,16 @@
                         }
                     });
                 }
+                
+                // Delete comment buttons
+                const deleteCommentBtns = postDiv.querySelectorAll('.delete-comment-btn');
+                deleteCommentBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const postId = parseInt(this.getAttribute('data-post-id'));
+                        const commentId = parseInt(this.getAttribute('data-comment-id'));
+                        showDeleteConfirmation('comment', postId, commentId);
+                    });
+                });
             }
             
             // Add event listener to message button
@@ -1880,6 +2141,96 @@
             }
             
             return postDiv;
+        }
+
+        function showDeleteConfirmation(type, postId, commentId = null) {
+            confirmationModal.classList.remove('hidden');
+            
+            if (type === 'post') {
+                confirmationTitle.textContent = 'Delete Post';
+                confirmationMessage.textContent = 'Are you sure you want to delete this post? This action cannot be undone.';
+                pendingDeleteAction = { type: 'post', postId };
+            } else if (type === 'comment') {
+                confirmationTitle.textContent = 'Delete Comment';
+                confirmationMessage.textContent = 'Are you sure you want to delete this comment?';
+                pendingDeleteAction = { type: 'comment', postId, commentId };
+            }
+        }
+
+        function executePendingDelete() {
+            if (!pendingDeleteAction) return;
+            
+            if (pendingDeleteAction.type === 'post') {
+                deletePost(pendingDeleteAction.postId);
+            } else if (pendingDeleteAction.type === 'comment') {
+                deleteComment(pendingDeleteAction.postId, pendingDeleteAction.commentId);
+            }
+            
+            confirmationModal.classList.add('hidden');
+            pendingDeleteAction = null;
+        }
+
+        function deletePost(postId) {
+            // Get posts from localStorage
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            
+            // Find and remove the post
+            const postIndex = posts.findIndex(p => p.id === postId);
+            if (postIndex === -1) return;
+            
+            // Remove the post
+            posts.splice(postIndex, 1);
+            
+            // Save updated posts
+            localStorage.setItem('posts', JSON.stringify(posts));
+            
+            // Remove from saved posts of all users
+            const users = JSON.parse(localStorage.getItem('users')) || [];
+            users.forEach(user => {
+                const savedPosts = JSON.parse(localStorage.getItem(`savedPosts_${user.id}`)) || [];
+                const savedIndex = savedPosts.indexOf(postId);
+                if (savedIndex !== -1) {
+                    savedPosts.splice(savedIndex, 1);
+                    localStorage.setItem(`savedPosts_${user.id}`, JSON.stringify(savedPosts));
+                }
+            });
+            
+            // Reload posts
+            loadPosts();
+            
+            // Update user's posts in dashboard
+            if (dashboardSection.classList.contains('hidden') === false) {
+                loadUserPosts();
+            }
+            
+            alert('Post deleted successfully!');
+        }
+
+        function deleteComment(postId, commentId) {
+            // Get posts from localStorage
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            
+            // Find the post
+            const postIndex = posts.findIndex(p => p.id === postId);
+            if (postIndex === -1) return;
+            
+            const post = posts[postIndex];
+            
+            // Find and remove the comment
+            if (post.comments) {
+                const commentIndex = post.comments.findIndex(c => c.id === commentId);
+                if (commentIndex !== -1) {
+                    post.comments.splice(commentIndex, 1);
+                    
+                    // Save updated posts
+                    localStorage.setItem('posts', JSON.stringify(posts));
+                    
+                    // Reload posts
+                    loadPosts();
+                    
+                    alert('Comment deleted successfully!');
+                }
+            }
         }
 
         function toggleLike(postId) {
@@ -2132,6 +2483,7 @@
             
             // Hide messages section
             messagesSection.classList.add('hidden');
+            usersSection.classList.add('hidden');
             
             // Scroll to dashboard
             dashboardSection.scrollIntoView({ behavior: 'smooth' });
@@ -2157,6 +2509,9 @@
             
             // Load saved posts
             loadSavedPosts();
+            
+            // Hide mobile menu
+            mobileNav.classList.remove('active');
         }
 
         function showMessages() {
@@ -2165,12 +2520,16 @@
             
             // Hide dashboard section
             dashboardSection.classList.add('hidden');
+            usersSection.classList.add('hidden');
             
             // Scroll to messages
             messagesSection.scrollIntoView({ behavior: 'smooth' });
             
             // Load conversations
             loadConversations();
+            
+            // Hide mobile menu
+            mobileNav.classList.remove('active');
         }
 
         function showUsers() {
@@ -2186,6 +2545,9 @@
             
             // Load users
             loadUsers();
+            
+            // Hide mobile menu
+            mobileNav.classList.remove('active');
         }
 
         function loadUserPosts() {
@@ -2635,4 +2997,4 @@
         });
     </script>
 </body>
-</html></html>
+</html>
