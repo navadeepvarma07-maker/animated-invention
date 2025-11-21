@@ -6,7 +6,7 @@
     <title>Arnama Connect - Community Bulletin Board</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Existing CSS remains the same */
+        /* All your existing CSS remains the same */
         body {
             background-color: #f5f7fa;
             color: #333;
